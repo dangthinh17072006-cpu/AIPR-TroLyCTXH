@@ -1,10 +1,117 @@
 [
   {
-    "doc_id": "CTXH-QUYDINH",
-    "title": "Quy định chương trình công tác xã hội",
+    "doc_id": "POLICY",
+    "title": "Quy tắc quy đổi CTXH bản cũ",
     "version": 1,
-    "date": null,
-    "owner": "Chưa ghi rõ trong tài liệu",
-    "file": "CTXH (1).md"
+    "date": "2026-01-01",
+    "text": "Dữ liệu giả lập. Quy đổi CTXH: 6 giờ bằng 1 ngày. Đây là phiên bản cũ.",
+    "facts": {
+      "hours_per_day": 6
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "POLICY",
+    "title": "Quy tắc quy đổi và đăng ký CTXH hiện hành",
+    "version": 2,
+    "date": "2026-09-01",
+    "text": "Dữ liệu giả lập, không phải quy định của trường. Quy đổi CTXH: 8 giờ bằng 1 ngày; cộng giờ của các hoạt động rồi chia 8, không làm tròn xuống. Chỉ quy đổi số ngày dự kiến, không xác nhận đã hoàn thành. Mỗi sinh viên chỉ đăng ký một lần cho một mã hoạt động. Hoạt động còn chỗ và đang mở mới được đăng ký. Cần mã sinh viên DEMO gồm 8 chữ số. Đăng ký không đồng nghĩa hoàn thành CTXH.",
+    "facts": {
+      "hours_per_day": 8,
+      "registration_is_completion": false
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "ACT-A01",
+    "title": "A01 Chủ nhật xanh",
+    "version": 1,
+    "date": "2026-09-02",
+    "text": "Dữ liệu giả lập. A01 Chủ nhật xanh là hoạt động dọn rác bảo vệ môi trường, thời lượng 4 giờ, đang mở đăng ký, có 30 chỗ.",
+    "facts": {
+      "code": "A01",
+      "hours": 4,
+      "capacity": 30,
+      "open": true
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "ACT-A02",
+    "title": "A02 Hỗ trợ thư viện",
+    "version": 1,
+    "date": "2026-09-02",
+    "text": "Dữ liệu giả lập. A02 Hỗ trợ thư viện: sắp xếp sách, thời lượng 6 giờ, đang mở đăng ký, có 20 chỗ.",
+    "facts": {
+      "code": "A02",
+      "hours": 6,
+      "capacity": 20,
+      "open": true
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "ACT-A03",
+    "title": "A03 Tiếp sức mùa thi",
+    "version": 1,
+    "date": "2026-09-02",
+    "text": "Dữ liệu giả lập. A03 Tiếp sức mùa thi hỗ trợ thí sinh, thời lượng 8 giờ, đang mở đăng ký, có 10 chỗ.",
+    "facts": {
+      "code": "A03",
+      "hours": 8,
+      "capacity": 10,
+      "open": true
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "ACT-A04",
+    "title": "A04 Tình nguyện mùa hè",
+    "version": 1,
+    "date": "2026-09-02",
+    "text": "Dữ liệu giả lập. A04 Tình nguyện mùa hè đang chờ công bố số giờ. Chưa mở đăng ký, có 15 chỗ. Không đủ dữ liệu để quy đổi ngày.",
+    "facts": {
+      "code": "A04",
+      "hours": null,
+      "capacity": 15,
+      "open": false
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "ACT-A05",
+    "title": "A05 Trồng cây",
+    "version": 1,
+    "date": "2026-09-02",
+    "text": "Dữ liệu giả lập. A05 Trồng cây gây rừng có thời lượng 4 giờ, đã đóng đăng ký, có 0 chỗ.",
+    "facts": {
+      "code": "A05",
+      "hours": 4,
+      "capacity": 0,
+      "open": false
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "GUIDE",
+    "title": "Phạm vi trợ lý CTXH",
+    "version": 1,
+    "date": "2026-09-03",
+    "text": "Dữ liệu giả lập. Trợ lý chỉ tra cứu quy tắc, tính số ngày dự kiến và ghi đăng ký vào SQLite demo. Không có học phí, học bổng, điểm học tập, lịch thi, số ngày đã hoàn thành hay hồ sơ CTXH thật. Muốn đăng ký cần yêu cầu rõ ràng kèm mã hoạt động và mã sinh viên demo.",
+    "facts": {
+      "scope": "demo_only"
+    },
+    "owner": "AIPR Demo Team"
+  },
+  {
+    "doc_id": "VERIFY",
+    "title": "Kiểm tra đăng ký CTXH",
+    "version": 1,
+    "date": "2026-09-03",
+    "text": "Dữ liệu giả lập. Sau khi tạo đăng ký phải dùng mã đăng ký để đọc lại từ SQLite. Chỉ thông báo thành công nếu thông tin đọc lại khớp sinh viên và mã hoạt động. Không tự cộng ngày hoàn thành.",
+    "facts": {
+      "verify_required": true
+    },
+    "owner": "AIPR Demo Team"
   }
 ]

@@ -1,0 +1,18 @@
+{"id": "Q01", "question": "Theo bản mới, bao nhiêu giờ CTXH bằng một ngày?", "no_answer": false, "expected_rate": 8, "expected_days": null, "expected_documents": ["POLICY"], "expect_write": false, "notes": ""}
+{"id": "Q02", "question": "Quy đổi A01 được bao nhiêu ngày?", "no_answer": false, "expected_rate": 8, "expected_days": 0.5, "expected_documents": ["POLICY", "ACT-A01"], "expect_write": false, "notes": ""}
+{"id": "Q03", "question": "Tính tổng ngày CTXH của A01 và A02.", "no_answer": false, "expected_rate": 8, "expected_days": 1.25, "expected_documents": ["POLICY", "ACT-A01", "ACT-A02"], "expect_write": false, "notes": ""}
+{"id": "Q04", "question": "A03 được bao nhiêu ngày CTXH?", "no_answer": false, "expected_rate": 8, "expected_days": 1.0, "expected_documents": ["POLICY", "ACT-A03"], "expect_write": false, "notes": ""}
+{"id": "Q05", "question": "A01 và A03 tổng cộng được mấy ngày?", "no_answer": false, "expected_rate": 8, "expected_days": 1.5, "expected_documents": ["POLICY", "ACT-A01", "ACT-A03"], "expect_write": false, "notes": ""}
+{"id": "Q06", "question": "Tôi đăng ký A01, mã sinh viên demo 11110001.", "no_answer": false, "expected_rate": 8, "expected_days": 0.5, "expected_documents": ["POLICY", "ACT-A01"], "expect_write": true, "notes": ""}
+{"id": "Q07", "question": "Đăng ký A02 cho mã sinh viên demo 11110002.", "no_answer": false, "expected_rate": 8, "expected_days": 0.75, "expected_documents": ["POLICY", "ACT-A02"], "expect_write": true, "notes": ""}
+{"id": "Q08", "question": "Học phí học kỳ này bao nhiêu?", "no_answer": true, "expected_rate": null, "expected_days": null, "expected_documents": [], "expect_write": false, "notes": ""}
+{"id": "Q09", "question": "Điều kiện học bổng là gì?", "no_answer": true, "expected_rate": null, "expected_days": null, "expected_documents": [], "expect_write": false, "notes": ""}
+{"id": "Q10", "question": "Lịch thi cuối kỳ vào ngày nào?", "no_answer": true, "expected_rate": null, "expected_days": null, "expected_documents": [], "expect_write": false, "notes": ""}
+{"id": "Q11", "question": "Quy đổi Z99 ra ngày CTXH.", "no_answer": true, "expected_rate": null, "expected_days": null, "expected_documents": [], "expect_write": false, "notes": ""}
+{"id": "Q12", "question": "Quy đổi A04 ra ngày CTXH.", "no_answer": true, "expected_rate": null, "expected_days": null, "expected_documents": [], "expect_write": false, "notes": ""}
+{"id": "Q13", "question": "Tôi đã hoàn thành bao nhiêu ngày CTXH?", "no_answer": true, "expected_rate": null, "expected_days": null, "expected_documents": [], "expect_write": false, "notes": ""}
+{"id": "Q14", "question": "Đăng ký A01 giúp tôi.", "no_answer": true, "expected_rate": null, "expected_days": null, "expected_documents": [], "expect_write": false, "notes": ""}
+{"id": "Q15", "question": "A01, A01 và A02 tổng cộng bao nhiêu ngày? Mỗi mã chỉ tính một lần.", "no_answer": false, "expected_rate": 8, "expected_days": 1.25, "expected_documents": ["POLICY", "ACT-A01", "ACT-A02"], "expect_write": false, "notes": ""}
+{"id": "Q16", "question": "Không đăng ký. Chỉ tính A02 ra ngày CTXH.", "no_answer": false, "expected_rate": 8, "expected_days": 0.75, "expected_documents": ["POLICY", "ACT-A02"], "expect_write": false, "notes": ""}
+{"id": "Q17", "question": "Bản cũ 6 giờ một ngày, bản mới quy đổi thế nào?", "no_answer": false, "expected_rate": 8, "expected_days": null, "expected_documents": ["POLICY"], "expect_write": false, "notes": ""}
+{"id": "Q18", "question": "Một ngày tình nguyện tương đương mấy tiếng?", "no_answer": false, "expected_rate": 8, "expected_days": null, "expected_documents": ["POLICY"], "expect_write": false, "notes": "Paraphrase challenge; local baseline currently misses this wording."}

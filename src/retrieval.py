@@ -1,31 +1,40 @@
-from course.ex2_1_hybrid_search import (
-    build_bm25_index,
-    dense_search,
-    hybrid_search,
-)
+"""Retriever: dense và hybrid (BM25 + vector), dùng lại hàm của w4 trong course/ex2_1_hybrid_search.py."""
+from course import ex2_1_hybrid_search as w4
+from course.ex2_1_hybrid_search import build_bm25_index, dense_search, hybrid_search
+
+from . import embedding
 from .chunking import load_chunks
-from .embedding import embed_text, fit, words
+from .embedding import words
 from .models import Chunk
 
 
 class Retriever:
     def __init__(self):
         self.chunks = load_chunks()
-        fit([chunk.text for chunk in self.chunks])
-        self.vectors = [embed_text(chunk.text) for chunk in self.chunks]
-        self.bm25 = build_bm25_index(self.chunks, tokenizer=words)
+        texts = [c.text for c in self.chunks]
+        if w4.EMBEDDING_BACKEND.startswith("LSA"):  # bản dự phòng cần học từ corpus trước
+            embedding.fit(texts)
+        self.vectors = [w4.embed_text(t) for t in texts]
 
-    def search(
-        self, question: str, mode: str = "hybrid", top_k: int = 3
-    ) -> list[tuple[Chunk, float]]:
-        if mode == "dense":
-            results = dense_search(question, self.vectors, top_k)
-        elif mode == "hybrid":
-            results = hybrid_search(
-                question, self.chunks, self.bm25, self.vectors,
-                top_k=top_k, tokenizer=words,
-            )
-        else:
+    @property
+    def backend(self) -> str:
+        return w4.EMBEDDING_BACKEND
+
+    def search(self, question: str, mode: str = "hybrid", top_k: int = 4,
+               doc_id: str | None = None) -> list[tuple[Chunk, float]]:
+        if mode not in ("dense", "hybrid"):
             raise ValueError("mode phải là 'dense' hoặc 'hybrid'")
 
-        return [(self.chunks[index], score) for index, score in results]
+        # metadata filter: lọc theo doc_id TRƯỚC khi xếp hạng
+        ids = [i for i, c in enumerate(self.chunks) if doc_id is None or c.source.doc_id == doc_id]
+        if not ids:
+            raise ValueError(f"doc_id không tồn tại: {doc_id}")
+        chunks = [self.chunks[i] for i in ids]
+        vectors = [self.vectors[i] for i in ids]
+
+        if mode == "dense":
+            ranked = dense_search(question, vectors, top_k)
+        else:
+            bm25 = build_bm25_index(chunks, tokenizer=words)
+            ranked = hybrid_search(question, chunks, bm25, vectors, top_k=top_k, tokenizer=words)
+        return [(chunks[i], float(score)) for i, score in ranked]

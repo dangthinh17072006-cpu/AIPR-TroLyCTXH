@@ -1,40 +1,34 @@
 # Khai báo sử dụng AI
 
 ## Công cụ và phạm vi
-ChatGPT / Codex hỗ trợ thiết kế, sinh code Python, tạo corpus giả lập, testset,
-viết kiểm thử, chạy kiểm thử, dựng báo cáo Word, README và hướng dẫn bảo vệ.
-Phần lớn bản khởi tạo trong src/, tests/, run.py và docs/build_report.py do AI sinh.
-Hai file course/original/*.py và đoạn code slide có nguồn từ tài liệu lớp do người dùng cung cấp.
-course/hybrid_from_lecture.py là bản chuyển đoạn code slide thành hàm dùng trong project.
-Chưa được cung cấp bản gốc ex2_1_hybrid_search.py; không khai là đã tái dùng file đó.
+Claude (Anthropic, giao diện chat) được dùng để **sửa/viết lại code** của repo theo văn bản `data/CTXH.md` và theo đề
+"FINAL PROJECT AIPR — Yêu cầu thực hiện (W1–W7)". Bản repo trước đó có phần do ChatGPT/Codex sinh (scaffold với dữ liệu giả A01–A05);
+phần đó đã được thay bằng dữ liệu CTXH thật. Ở lượt sửa gần nhất, Claude được nhờ **rút gọn code**: bỏ 2 mục điểm cộng
+(client MCP thứ hai; biểu đồ + CSV theo từng câu), bỏ `make check`, và viết lại các file cho đơn giản hơn.
 
-## Prompt chính
-“Đọc kỹ yêu cầu đồ án cuối kỳ AIPR, làm project đơn giản dễ hiểu chạy trên VS Code,
-nhóm Lê Quang Thắng và Đặng Tấn Phúc Thịnh; có RAG, agent, MCP, logs, testset,
-README, ai-usage và report Word 8–9 trang có khung, mục lục, hình minh họa.”
-
-## Cách kiểm chứng
-Chạy MCP stdio thật, tạo và đọc lại SQLite; chạy unit/integration test và eval 3 lượt.
-Kết quả local không dùng LLM, vì chưa có API key. Test API mô phỏng không được coi là log API thật.
-AI không tạo lịch sử commit giả dưới tên sinh viên và không tự nhận phần code là do sinh viên viết.
-
-## Phần nào do AI sinh (theo file)
+## Phần do AI sinh/sửa (theo file)
 | File | Mức độ AI | Ghi chú |
 |---|---|---|
-| src/models.py, config.py, logging_utils.py | AI sinh | Nhóm cần đọc và giải thích được |
-| src/chunking.py, embedding.py, textutil.py, retrieval.py, evaluate.py | AI sinh, 14/10/2026 | Nối `ex2_1.py` của nhóm, chunking theo câu, chấm trích dẫn theo chunk |
-| course/ex2_1_hybrid_search.py | Nhóm viết (`ex2_1.py`), AI chỉnh 3 chỗ | Import fallback, tham số `tokenizer`, type hint; thêm `dense_search` |
-| src/agent.py, llm.py, templates/agent.txt | AI sinh | Vòng lặp, MAX_STEPS, guard ghi/verify |
-| src/server.py, mcp_client.py | AI sinh | MCP stdio, SQLite |
-| src/check.py, Makefile (target check), README (chunking, bảng đối chiếu) | AI sinh, 14/10/2026 | Thêm theo yêu cầu cập nhật code |
-| data/documents.json, tests/testset.jsonl | AI sinh | Dữ liệu giả lập |
-| report.docx (docs/build_report.py) | AI sinh | Nhóm phải đọc và sửa lại nội dung |
+| `src/models.py`, `src/config.py`, `src/logging_utils.py` | AI sinh/sửa | dataclass, TypedDict |
+| `src/activities.py` | AI sinh/sửa | parse bảng II.2.a, luật làm tròn II.2.c |
+| `src/chunking.py` | AI sinh/sửa, thay bản chunk theo dòng của nhóm | dòng bảng + gom đoạn theo tiêu đề |
+| `src/embedding.py`, `src/retrieval.py` | AI sinh/sửa | embedding dự phòng; metadata filter trước khi xếp hạng |
+| `course/ex2_1_hybrid_search.py` | **Nhóm viết (w4)**, AI chỉnh 3 chỗ | import dự phòng, tham số `tokenizer`, `dense_search` |
+| `src/server.py`, `src/mcp_client.py` | AI sinh/sửa | 6 tool, SQLite, stdio |
+| `src/agent.py`, `src/planner.py`, `src/llm.py`, `templates/agent.txt` | AI sinh/sửa | vòng lặp, guard ghi, verify, retry/timeout, prompt |
+| `src/evaluate.py`, `src/main.py`, `run.py`, `Makefile` | AI sinh/sửa | |
+| `tests/test_core.py`, `tests/testset.jsonl` | AI sinh/sửa | câu hỏi và đáp án viết dựa trên `CTXH.md` |
+| `README.md`, `ai-usage.md` | AI sinh/sửa | |
+| `data/CTXH.md` | Văn bản gốc của trường | không do AI viết |
 
-## Nhóm cần cập nhật trước khi nộp
-Từng thành viên ghi rõ phần đã đọc, giải thích được, sửa và kiểm thử; thêm commit thật tương ứng.
-Các mục phân công hiện là kế hoạch, chưa phải chứng nhận đóng góp.
-Nếu dùng thêm AI để sửa, ghi ngày, prompt chính, file liên quan và cách kiểm chứng ở dưới.
+## Cách kiểm chứng
+`make test` (20 test: parser, chunking, retrieval, MCP thật qua stdio, ghi + verify, idempotent, guard ghi, retry HTTP bằng server giả);
+`make eval` (dense vs hybrid). Engine `local` **không dùng LLM**; log `logs/eval-local-*` và `logs/demo-local-*` có `calls=0`, token=0.
+Log LLM thật phải do nhóm tạo bằng API key riêng (xem README).
+
+## Nhóm cần tự điền trước khi nộp
+Từng thành viên ghi phần đã đọc, giải thích được, sửa, kiểm thử và commit tương ứng:
 
 | Ngày | Người thực hiện | Công cụ | Phần thay đổi | Kiểm chứng và commit |
 |---|---|---|---|---|
-| Chờ nhóm điền | | | | |
+| | | | | |

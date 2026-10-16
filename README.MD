@@ -1,132 +1,110 @@
-# AIPR — Trợ lý CTXH quy đổi và đăng ký
+# AIPR — Trợ lý Công tác xã hội (CTXH)
 
-**Nhóm:** Lê Quang Thắng — Đặng Tấn Phúc Thịnh.
-**Trường:** HCMC UNIVERSITY OF TECHNOLOGY AND ENGINEERING.
-Dữ liệu trong project là giả lập, không phải quy định hay hệ thống của trường.
+**Nhóm:** Lê Quang Thắng — Đặng Tấn Phúc Thịnh · HCMC University of Technology and Engineering
+**Dữ liệu:** `data/CTXH.md` — *Quy định tổ chức thực hiện Chương trình CTXH đối với SV hệ chính quy* (văn bản thật của trường).
+Sổ ghi nhận hoạt động (`state/ctxh.sqlite3`) chỉ là **DEMO**, không phải hệ thống PSC của trường; mã sinh viên `11110001` chỉ để thử.
 
-## Bắt đầu trên VS Code
-1. Cài Python 3.11 trở lên, Git, VS Code và extension Python của Microsoft.
-2. Giải nén toàn bộ ZIP, giữ thư mục `.git`. Mở **thư mục aipr_ctxh** bằng File → Open Folder.
-3. Terminal → New Terminal, chạy **một dòng**:
-
-```powershell
-python run.py setup-demo
-```
-
-Nếu Windows chỉ nhận `py`, dùng `py -3 run.py setup-demo`.
-Lần đầu cần mạng tải thư viện; về sau local demo không cần mạng hay API key.
-Đã kiểm tra trên Linux/Python 3.12; nhánh đường dẫn Windows có trong run.py nhưng chưa kiểm thử trên máy Windows thật.
-Chọn interpreter `.venv\Scripts\python.exe` trong VS Code (Linux/macOS: `.venv/bin/python`).
-Không bấm Run trực tiếp từng file trong src vì các file dùng import theo package.
-
-Máy có GNU Make dùng đúng lệnh theo đề:
+## Chạy
 
 ```bash
-make setup && make demo
+make setup && make demo          # Linux/macOS/Git-Bash (cần Python 3.11+)
+python run.py setup-demo         # Windows
 ```
 
-Đây là demo terminal, không cần chạy web server và không có giao diện trình duyệt.
+Mặc định `AIPR_MODE=local` nên demo không cần API key.
 
-## Các lệnh dùng hằng ngày
-
-| Việc | Windows và các hệ điều hành | Có GNU Make |
+| Việc | Lệnh | Windows |
 |---|---|---|
-| Demo 3 câu | `python run.py demo` | `make demo` |
-| Tự nhập câu hỏi | `python run.py chat` | `make chat` |
-| Đánh giá 3 lần, dense và hybrid | `python run.py eval` | `make eval` |
-| Kiểm thử chức năng | `python run.py test` | `make test` |
-| Tự kiểm theo đề | `python run.py check` | `make check` |
+| Demo 3 câu (tra mã, RAG, ghi + verify) | `make demo` | `python run.py demo` |
+| Hỏi tự do | `make chat` | `python run.py chat` |
+| So sánh dense và hybrid | `make eval` | `python run.py eval` |
+| Kiểm thử | `make test` | `python run.py test` |
 
-Ví dụ: `Tính tổng ngày CTXH của A01 và A02.`
-Ví dụ có ghi DB: `Đăng ký A01 cho mã sinh viên demo 11110001.`
-Ví dụ thiếu dữ liệu: `Quy đổi A04 ra ngày CTXH.`
-Gõ `exit` để thoát chat. Mã 11110001 chỉ là mã dùng thử, không phải MSSV của thành viên.
+Ví dụ câu hỏi: `Mã 001202 được bao nhiêu ngày CTXH?` · `Tổng điểm 47 quy đổi mấy ngày?` ·
+`Ghi nhận sinh viên 11110001 mã 001202, 5 điểm, ngày 2026-10-10.` · `Không ghi nhận, chỉ tính mã 001202.`
 
-## Bật API để hoàn tất bằng chứng LLM
+## Dùng LLM thật
 
-Copy `.env.example` thành `.env`, nhập key **trong máy của bạn**, không gửi key vào chat:
+Copy `.env.example` thành `.env` rồi điền key trên máy của bạn (`.env` đã nằm trong `.gitignore`):
 
 ```dotenv
 AIPR_MODE=api
-OPENAI_API_KEY=nhap_key_cua_ban
+OPENAI_API_KEY=...
 OPENAI_MODEL=gpt-4.1-mini
-OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_BASE_URL=https://api.openai.com/v1   # hoặc endpoint OpenAI-compatible khác
 ```
 
-Nếu dùng Groq như ví dụ trong tài liệu lớp, đặt OPENAI_BASE_URL thành endpoint OpenAI-compatible của tài khoản Groq, đặt OPENAI_MODEL theo model được tài khoản hỗ trợ và dùng key Groq ở biến OPENAI_API_KEY. Tên biến là tên chung của adapter, không bắt buộc provider là OpenAI.
-Chạy lại `python run.py demo`, sau đó `make eval` (hoặc `python run.py eval`).
-`--engine api` / `--engine local` ghi đè cấu hình. API mode không âm thầm chuyển về local.
-Có thể dùng `python run.py eval --engine api --repeats 1` để kiểm tra trước khi chạy đủ 3 lần.
-API có thể phát sinh phí. Điền đơn giá hiện hành vào hai biến PRICE trong .env nếu muốn tính cost_usd;
-không có đơn giá hoặc usage không đầy đủ thì CSV để trống, không đoán số tiền.
+Sau đó chạy `make demo` và `make eval` (mode api mặc định lặp 3 lượt, mỗi lượt có 1 file `logs/*.jsonl` kèm dòng USAGE).
+API mode không tự chuyển về local. **Engine `local` chỉ là bộ chọn hành động theo luật (baseline), không phải LLM.**
 
-**Bộ được giao hiện tại:** đã kiểm thử local; chưa có key nên chưa có log LLM thật.
-Local dùng bộ chọn hành động theo luật, không được gọi kết quả local là chất lượng LLM agent.
-API mode dùng model chọn tool qua prompt và catalog MCP, host giữ các guard ghi/verify.
-Câu trả lời được tổng hợp từ facts và kết quả tool theo mẫu để dễ kiểm chứng.
+## Kiến trúc
 
-## Chunking và lý do (yêu cầu 2.5)
-- Chunk theo **câu** (`src/chunking.py`): gom các câu liên tiếp tới tối đa 220 ký tự, không bao giờ cắt giữa câu. Tài liệu ngắn (mọi `ACT-*`, `GUIDE`, `VERIFY`) = 1 chunk; `POLICY` v2 (382 ký tự) tách thành 2 chunk: `POLICY:v2:0` (quy đổi 8 giờ = 1 ngày) và `POLICY:v2:1` (điều kiện đăng ký).
-- Lý do: con số luôn đi cùng điều kiện áp dụng (8 giờ/ngày, mở/đóng, số chỗ) nên ranh giới cắt là câu, không phải số ký tự cố định. Hai nhóm quy tắc của POLICY tách riêng để câu hỏi về đăng ký không kéo theo đoạn quy đổi và ngược lại.
-- Mỗi chunk có tiền tố tiêu đề (`"title. text"`) để đứng một mình vẫn rõ chủ đề; metadata `doc_id, version, owner, chunk_id = doc_id:vN:i`. Không overlap vì câu đã là ranh giới ý trọn vẹn.
-- Chỉ bản `version` cao nhất của mỗi `doc_id` được lập chỉ mục; truy vấn lọc `owner` **trước** khi xếp hạng (mỗi owner một chỉ mục BM25 + embedding).
-- Trích dẫn đúng chunk: claim `hours_per_day` phải trích chunk thật sự chứa câu "8 giờ bằng 1 ngày"; `make eval` chấm faithfulness bằng đúng điều kiện này.
-- Hạn chế trung thực: corpus chỉ 8 tài liệu nên ngưỡng 220 ký tự chưa được tinh chỉnh; thử 120 / 220 / 400 ký tự và đo lại `first_recall_at_4` nếu có thêm dữ liệu dài.
+```
+Người dùng ─▶ src/main.py ─▶ src/agent.py   (vòng lặp tự viết, MAX_STEPS=8, guard ghi, verify bắt buộc)
+                              │  chọn hành động: local (src/planner.py) hoặc LLM (src/llm.py + templates/agent.txt)
+                              ▼  MCP stdio (list_tools, call_tool)
+                          src/server.py     (FastMCP, 6 tool)
+     ĐỌC: search_regulations · lookup_activity · points_to_days · get_record · get_student_summary
+     GHI: record_activity ──▶ SQLite ──▶ get_record (verify)
+                          │ RAG: src/chunking.py → src/retrieval.py → course/ex2_1_hybrid_search.py (w4)
+                          └ bảng mã: src/activities.py
+```
 
-## Hai chế độ truy vấn (yêu cầu 2.5)
-| Chế độ | Hàm (tái dùng `course/ex2_1_hybrid_search.py`, = `ex2_1.py` của nhóm) | Điểm |
+Văn bản được chia thành 6 tài liệu có metadata `doc_id, title, version, date, owner` (`data/documents.json`):
+CTXH-I … CTXH-V theo mục lớn, và CTXH-II-BANG cho bảng mã. Văn bản không ghi ngày ban hành nên `date = null`.
+
+## Chunking
+
+- **Mỗi dòng bảng mã là 1 chunk**, ô "Lĩnh vực" để trống thì lấy của dòng trên. Cắt theo số từ sẽ làm mã `001105` mất chữ "Mùa hè xanh" hoặc tách mã khỏi điểm/ngày.
+- **Văn xuôi:** gom các đoạn cùng tiêu đề, tối đa 110 từ; đoạn dài hơn thì cắt ở cuối câu hoặc dấu `;`.
+- Chunk văn xuôi bắt đầu bằng đường dẫn tiêu đề trong ngoặc vuông (`[III > 7. Bước 7:] ...`), không overlap.
+- Chunk id dạng `doc_id:vN:i` để trích dẫn; `make eval` kiểm tra nguồn trích dẫn có chứa bằng chứng thật không.
+- Corpus có 102 chunk (55 dòng bảng + 47 đoạn văn xuôi). Ngưỡng 110 từ chưa được tinh chỉnh bằng thực nghiệm.
+
+## Dense và hybrid
+
+| Chế độ | Hàm (`course/ex2_1_hybrid_search.py`) | Điểm |
 |---|---|---|
-| `dense` | `dense_search` | cosine(embedding truy vấn, embedding chunk) |
+| `dense` | `dense_search` | cosine giữa embedding câu hỏi và chunk |
 | `hybrid` | `hybrid_search` | 0.3 × BM25 + 0.7 × cosine, sau min-max |
 
-- Embedding: nếu import được `Vector_Store` của lớp (thư mục `../Week_4`, hoặc đặt biến môi trường `W4_PATH`) thì dùng `embed_text` thật; nếu không, dùng `src/embedding.py` (LSA offline) để repo vẫn chạy 1 lệnh. Log `RUN_START` ghi backend đang dùng.
-- Chọn chế độ: `python run.py demo --retrieval dense|hybrid` (mặc định hybrid); `make eval` chạy cả hai và so sánh trong `summary.json` và `per_question.csv`.
+- Embedding: nếu import được `Vector_Store` của lớp (`../Week_4` hoặc biến `W4_PATH`) thì dùng embedding đó; nếu không dùng `src/embedding.py` (TF-IDF + SVD, chạy offline) để repo chạy được bằng 1 lệnh.
+- **Metadata filter:** tham số `doc_id` của `search_regulations` lọc chunk *trước* khi xếp hạng. Prompt `templates/agent.txt` hướng dẫn LLM dùng nó.
 
-## Đối chiếu yêu cầu và bằng chứng
-Chạy `make check` (hoặc `python run.py check`) để tự kiểm theo bảng yêu cầu của đề.
+## Đối chiếu yêu cầu
 
 | Yêu cầu | Bằng chứng |
 |---|---|
-| 2.3 Typing | `src/models.py` (`@dataclass`, `TypedDict`) |
-| 2.4 API retry/timeout/log, prompt tách file | `src/llm.py`, `templates/agent.txt` |
-| 2.5 dense + hybrid, chunking, `make eval` | `course/ex2_1_hybrid_search.py`, `src/chunking.py`, `src/retrieval.py`, `results/*/summary.json` |
-| 2.6 MAX_STEPS, `Error:`, parse an toàn | `src/agent.py`, `src/config.py`, `tests/test_safety.py` |
-| 2.7 ghi rồi verify | log `VERIFY` trong `logs/`, `register_activity` → `get_registration` |
-| 2.8 MCP stdio, ≥2 tool, discover động | `src/server.py`, `src/mcp_client.py` |
-| Cộng điểm: so sánh dense/hybrid (CSV chi tiết từng câu) | `make eval`, `per_question.csv` |
+| 2.1 một lệnh | `make setup && make demo` |
+| 2.2 agent tự viết | `src/agent.py` (không dùng framework) |
+| 2.3 typing | `src/models.py` (`@dataclass`, `TypedDict`) |
+| 2.4 API có retry/timeout/log, prompt tách file | `src/llm.py`, `templates/agent.txt`, `tests/test_core.py::LlmAdapterTests` |
+| 2.5 dense + hybrid, chunking, `make eval` | `src/chunking.py`, `src/retrieval.py`, `src/evaluate.py` |
+| 2.6 MAX_STEPS, `Error:`, parse an toàn | `src/agent.py::parse_action`, `src/config.py`, `src/mcp_client.py::call` |
+| 2.7 ghi dữ liệu + verify | `record_activity` → `get_record`; sự kiện `VERIFY_FORCED`/`VERIFY` trong `logs/` |
+| 2.8 MCP server | `src/server.py` (stdio, 6 tool, 1 tool ghi), `src/mcp_client.py` |
+| Điểm cộng | metadata filter thật · so sánh dense và hybrid trong `make eval` |
 
-## Nơi xem kết quả
-- `logs/`: JSONL thật, có timestamp, câu hỏi, tool arguments/results, VERIFY và USAGE.
-- `results/local-.../` hoặc `results/api-.../`: summary.json, per_question.csv.
-- `results/latest_local.txt` / `latest_api.txt`: tên lần đánh giá gần nhất.
-- `state/registrations.sqlite3`: DB demo. Không đưa dữ liệu sinh viên thật vào đây.
-- Eval dùng DB tạm riêng từng câu và không thay đổi DB demo.
-- Xóa riêng file `state/registrations.sqlite3` nếu muốn bắt đầu demo từ DB rỗng (mất đăng ký demo).
+## Xem kết quả
 
-## Đọc code theo thứ tự
-1. `src/models.py`: dataclass, TypedDict và cấu trúc đáp án.
-2. `data/documents.json`: corpus, metadata và facts.
-3. `src/chunking.py` → `src/retrieval.py` → `course/ex2_1_hybrid_search.py` (+ `src/embedding.py` dự phòng): chunk, dense, BM25 và fusion.
-4. `src/server.py`: bốn MCP tool và SQLite.
-5. `src/mcp_client.py`: initialize, list_tools, call_tool.
-6. `src/agent.py`: parse JSON, vòng lặp tối đa 8 bước, điều kiện ghi và verify.
-7. `src/llm.py` + `templates/agent.txt`: API, retry, timeout, prompt.
-8. `src/evaluate.py`: gold, faithfulness quy tắc, từ chối, Recall@4, USAGE.
+- `logs/*.jsonl`: từng câu có `ACTION`, `TOOL_CALL`, `TOOL_RESULT`, `VERIFY`, `ANSWER`, `USAGE`.
+- `results/<engine>-<giờ>/summary.json`: Hit@4, MRR, tỉ lệ đạt, tỉ lệ từ chối đúng, tỉ lệ trích dẫn đúng, token.
+- Eval dùng SQLite tạm, không đụng `state/`.
 
-## Trước khi nộp — chưa được bỏ qua
-- [ ] Nếu có `Vector_Store.py` của lớp: đặt vào `../Week_4` (hoặc `W4_PATH`), chạy lại `make eval` và cập nhật số liệu báo cáo; hiện đang dùng embedding LSA dự phòng.
-- [ ] Chạy API thật ít nhất 3 lượt, đọc log và cập nhật số liệu cùng trace trong report.
-- [ ] Điền giảng viên và MSSV trên bìa; xác nhận tên/đề tài với nhóm.
-- [ ] Mỗi người sửa, kiểm thử và commit phần mình bằng tài khoản thật; cập nhật hash trong report.
-- [ ] Đọc ai-usage.md; khai báo AI đầy đủ, tập giải thích/sửa code trực tiếp.
-- [ ] Thử lệnh cold start trên máy Windows của nhóm, từ một bản giải nén mới.
+## Giới hạn
 
-Không giả commit của sinh viên. Các commit khởi tạo ghi tác giả AI Scaffold, không chứng minh đóng góp cá nhân.
-Xem `docs/LIEN_HE_BAI_HOC.md`, `docs/YEU_CAU.md`, `docs/HUONG_DAN_BAO_VE.md`, `docs/PHAN_CONG.md`.
+Hệ thống chỉ trả lời dựa trên văn bản quy định CTXH và sổ demo; không biết lịch hoạt động, số chỗ, học phí, điểm chuẩn...
+(sẽ trả `no_answer`). Không thay thế phần mềm PSC; không xác minh danh tính sinh viên; chưa xử lý quy tắc trừ ngày (II.2.b)
+và chưa phân biệt khóa 2012.
 
-## Chỉnh báo cáo
-`report.docx` có khung bìa, mục lục, hình kiến trúc và trace.
-Số liệu local đọc từ kết quả thực. Báo cáo là bản có thể chỉnh sửa, chưa thay thế log API và commit của nhóm.
-Script dựng báo cáo: `docs/build_report.py`. Sau khi có kết quả API, cập nhật nội dung mô tả local/API,
-chọn đúng thư mục kết quả, tạo lại báo cáo và kiểm tra toàn bộ trang trong Word.
-Không chỉ thay số mà giữ nguyên lời nhận xét cũ.
+Giới hạn đã biết của baseline `local`: câu "Học phí học kỳ này là bao nhiêu?" (Q19) vẫn bị trả lời thay vì từ chối, vì
+bộ lọc từ chối chỉ dựa vào tỉ lệ từ khóa trùng. Engine `api` xử lý việc này bằng prompt.
+
+## Trước khi nộp
+
+- [ ] Chạy API thật ít nhất 3 lượt (`AIPR_MODE=api`), đọc log, cập nhật số liệu trong report.
+- [ ] Thu hồi (revoke) API key OpenAI từng nằm trong `.env.example` của bản zip cũ, tạo key mới; không đưa key vào git.
+- [ ] Commit thật từng người bằng tài khoản của mình.
+- [ ] Viết `report.docx` theo khung của đề.
+- [ ] Điền `ai-usage.md` bằng phần từng người đã đọc, sửa, giải thích được.
+- [ ] Thử `make setup && make demo` từ một bản giải nén mới.

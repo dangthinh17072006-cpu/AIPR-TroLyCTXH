@@ -1,7 +1,8 @@
-.venv/
-.env
 __pycache__/
 *.pyc
+.venv/
+.env
 state/
-.pytest_cache/
-.vscode/*.log
+results/*/__pycache__/
+.DS_Store
+# logs/ và results/ được commit để giảng viên đối chiếu bằng chứng

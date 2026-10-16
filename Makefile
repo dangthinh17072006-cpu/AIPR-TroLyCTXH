@@ -1,5 +1,5 @@
 PYTHON ?= python3
-.PHONY: setup demo chat eval test check
+.PHONY: setup demo chat eval test
 setup:
 	$(PYTHON) run.py setup
 demo:
@@ -10,5 +10,3 @@ eval:
 	$(PYTHON) run.py eval
 test:
 	$(PYTHON) run.py test
-check:
-	$(PYTHON) run.py check

@@ -1,11 +1,3 @@
-# Khai báo sử dụng AI
-
-## Công cụ và phạm vi
-Claude (Anthropic, giao diện chat) được dùng để **sửa/viết lại code** của repo theo văn bản `data/CTXH.md` và theo đề
-"FINAL PROJECT AIPR — Yêu cầu thực hiện (W1–W7)". Bản repo trước đó có phần do ChatGPT/Codex sinh (scaffold với dữ liệu giả A01–A05);
-phần đó đã được thay bằng dữ liệu CTXH thật. Ở lượt sửa gần nhất, Claude được nhờ **rút gọn code**: bỏ 2 mục điểm cộng
-(client MCP thứ hai; biểu đồ + CSV theo từng câu), bỏ `make check`, và viết lại các file cho đơn giản hơn.
-
 ## Phần do AI sinh/sửa (theo file)
 | File | Mức độ AI | Ghi chú |
 |---|---|---|
@@ -26,9 +18,4 @@ phần đó đã được thay bằng dữ liệu CTXH thật. Ở lượt sửa
 `make eval` (dense vs hybrid). Engine `local` **không dùng LLM**; log `logs/eval-local-*` và `logs/demo-local-*` có `calls=0`, token=0.
 Log LLM thật phải do nhóm tạo bằng API key riêng (xem README).
 
-## Nhóm cần tự điền trước khi nộp
-Từng thành viên ghi phần đã đọc, giải thích được, sửa, kiểm thử và commit tương ứng:
 
-| Ngày | Người thực hiện | Công cụ | Phần thay đổi | Kiểm chứng và commit |
-|---|---|---|---|---|
-| | | | | |

@@ -1,0 +1,650 @@
+[
+  {
+    "id": "Q01",
+    "mode": "dense",
+    "question": "Trực tiếp hiến máu tình nguyện một lần, mã 001202, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 0.8314033441366907,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.5418290229059916,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-28",
+        "score": 0.2752444245867726,
+        "text": "|                                                                                    | 004204 | Tham gia chăm sóc các cháu tại các trung tâm tình nguyện (01 lần).                                                                                                                                                | 5→10        | 0,5→1               |\n|                                                                                    | 004205 | Tham gia chăm sóc người bệnh có hoàn khó khăn tại bệnh viện hoặc gia đình (01 lần).                                                                                                                         | 5→10        | 0,5→1               |\n| Dạy nghề, chuyên môn cho thanh niên                                           | 005101 | Tham gia dạy nghề, chuyên môn cho thanh niên địa phương (01 tuần)                                                                                                                                                 | 20→30       | 2→3                 |"
+      }
+    ]
+  },
+  {
+    "id": "Q02",
+    "mode": "dense",
+    "question": "Tổ chức hoạt động hiến máu tình nguyện một lần, mã 001201, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 0.8097883823742242,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.5136609055314011,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-40",
+        "score": 0.34092844134514866,
+        "text": "Kế hoạch tổ chức hoạt động CTXH được xây dựng & công bố định kỳ vào đầu mỗi học kỳ và được bổ sung hàng tháng. Kế hoạch nêu rõ: Nội dung hoạt động, không gian & thời gian tổ chức; đơn vị chủ trì tổ chức & đánh giá, ban tổ chức triển khai hoạt động CTXH; quy mô SV có thể tham gia, đối tượng SV tham gia; dự kiến số điểm & số ngày CTXH được quy đổi; dự toán kinh phí & nguồn chi.\n**a. Hoạt động tại trường:**"
+      }
+    ]
+  },
+  {
+    "id": "Q03",
+    "mode": "dense",
+    "question": "Mùa hè xanh đội hình chuyên ngắn ngày hai tuần, mã 001104, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 0.7986589057107273,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-17",
+        "score": 0.5054381017713923,
+        "text": "a. Các nội dung CTXH được mã hóa, thang điểm & quy đổi như sau:\n| Lĩnh vực CTXH                                                                    | Mã    | Nội dung & định lượng                                                                                                                                                                                                  | Thang điểm | Quy đổi ngày CTXH |\n| ---------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- |\n| Mùa hè xanh                                                                      | 001101 | Tham gia suốt chiến dịch (01 tháng) tại các tỉnh                                                                                                                                                                     | 20→40       | 2→4                 |\n|                                                                                    | 001102 | Tham gia suốt chiến dịch (01 tháng) tại Tp. Hồ Chí Minh                                                                                                                                                              | 20→40       | 2→4                 |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.4184680428350195,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      }
+    ]
+  },
+  {
+    "id": "Q04",
+    "mode": "dense",
+    "question": "Mùa hè xanh đội hình chuyên ngắn ngày một tuần, mã 001105, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 0.7892425076650202,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-17",
+        "score": 0.5058360051822715,
+        "text": "a. Các nội dung CTXH được mã hóa, thang điểm & quy đổi như sau:\n| Lĩnh vực CTXH                                                                    | Mã    | Nội dung & định lượng                                                                                                                                                                                                  | Thang điểm | Quy đổi ngày CTXH |\n| ---------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- |\n| Mùa hè xanh                                                                      | 001101 | Tham gia suốt chiến dịch (01 tháng) tại các tỉnh                                                                                                                                                                     | 20→40       | 2→4                 |\n|                                                                                    | 001102 | Tham gia suốt chiến dịch (01 tháng) tại Tp. Hồ Chí Minh                                                                                                                                                              | 20→40       | 2→4                 |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.4148580166003593,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      }
+    ]
+  },
+  {
+    "id": "Q05",
+    "mode": "dense",
+    "question": "Đi xem và cổ vũ thi đấu thể thao có được tính ngày CTXH không?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-16",
+        "score": 0.9160790411917469,
+        "text": "✓ Các hoạt động không mang tính chất CTXH như: xem biểu diễn văn hóa nghệ thuật, chiếu phim; xem & cổ vũ thi đấu thể thao; tham quan bảo tàng, di tích lịch sử; đi du lịch; tham dự hội thảo; sinh hoạt tại các Câu lạc bộ... không được tính ngày CTXH.\n✓ Khi SV tham gia hoạt động CTXH đã được trả tiền công hoặc trả phí, thì không được tính ngày công tác xã hội.\n### 2. Mã hóa, thang điểm & quy đổi ngày CTXH"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-34",
+        "score": 0.530908002694907,
+        "text": "|                                                                                    | 006204 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp thành, ngành /theo cuộc thi                                                                           | 10→20       | 1→2                 |\n|                                                                                    | 006205 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp trường /theo cuộc thi                                                                                 | 5→10        | 0,5→1               |\n|                                                                                    | 006206 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp khoa/TT/theo cuộc thi                                                                                   | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-33",
+        "score": 0.5089267661319931,
+        "text": "|                                                                                    | 006202 | Tổ tổ chức các hoạt động văn nghệ, thể dục thể thao, các phong trào (ban chỉ đạo, ban tổ chức, ban giám khảo,.../ theo đợt hoặc hội thi, hội thao/ cấp khoa/TT.                                  | 10→20       | 1→2                 |\n|                                                                                    | 006203 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp quốc tế/theo cuộc thi                                                                                 | 15→30       | 1,5→3               |"
+      }
+    ]
+  },
+  {
+    "id": "Q06",
+    "mode": "dense",
+    "question": "Tham gia hoạt động CTXH đã được trả tiền công có được tính ngày CTXH không?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-16",
+        "score": 0.8936484330154413,
+        "text": "✓ Các hoạt động không mang tính chất CTXH như: xem biểu diễn văn hóa nghệ thuật, chiếu phim; xem & cổ vũ thi đấu thể thao; tham quan bảo tàng, di tích lịch sử; đi du lịch; tham dự hội thảo; sinh hoạt tại các Câu lạc bộ... không được tính ngày CTXH.\n✓ Khi SV tham gia hoạt động CTXH đã được trả tiền công hoặc trả phí, thì không được tính ngày công tác xã hội.\n### 2. Mã hóa, thang điểm & quy đổi ngày CTXH"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-37",
+        "score": 0.46697580996617427,
+        "text": "- SV đăng ký tham gia hoạt động CTXH, nhưng không thực hiện nội dung đã đăng ký mà không có lý do hoặc lý do không chính đáng bị trừ 0,5 ngày CTXH;\n- SV đăng ký tham gia hoạt động CTXH, nhưng không hoàn thành nhiệm vụ, gây ảnh hưởng xấu đến hình ảnh của hoạt động, tổ chức, nhà trường, tùy theo mức độ vi phạm sẽ bị xử lý kỷ luật từ khiển trách trở lên và bị trừ ngày CTXH từ 01 đến toàn bộ số ngày đã tích lũy được."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-40",
+        "score": 0.4388306399224049,
+        "text": "Kế hoạch tổ chức hoạt động CTXH được xây dựng & công bố định kỳ vào đầu mỗi học kỳ và được bổ sung hàng tháng. Kế hoạch nêu rõ: Nội dung hoạt động, không gian & thời gian tổ chức; đơn vị chủ trì tổ chức & đánh giá, ban tổ chức triển khai hoạt động CTXH; quy mô SV có thể tham gia, đối tượng SV tham gia; dự kiến số điểm & số ngày CTXH được quy đổi; dự toán kinh phí & nguồn chi.\n**a. Hoạt động tại trường:**"
+      }
+    ]
+  },
+  {
+    "id": "Q07",
+    "mode": "dense",
+    "question": "Sinh viên được làm đơn khiếu nại kết quả CTXH trong thời hạn bao lâu sau khi công bố kết quả?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-53",
+        "score": 0.895536255307765,
+        "text": "b. Các đơn vị tổ chức & đánh giá kết quả hoạt động CTXH của SV chuyển phòng Công tác HSSV bản chính bằng đánh giá kết quả (bảng điểm) sau khi đã hoàn tất việc nhập điểm và giải quyết các khiếu nại (nếu có). Thời hạn chậm nhất sau 20 ngày kể từ khi kết thúc việc tổ chức hoạt động CTXH.\n**IV. TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ**"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-51",
+        "score": 0.8686070770731229,
+        "text": "**7. Bước 7:** Khiếu nại kết quả đánh giá hoạt động CTXH: Trong vòng 10 ngày sau khi công bố kết quả đánh giá hoạt động CTXH, SV được phép làm đơn khiếu nại. Đơn gửi trực tiếp cho đơn vị tổ chức & đánh giá hoạt động CTXH mà SV đã tham gia. Trưởng đơn vị tổ chức & đánh giá hoạt động CTXH có trách nhiệm trả lời đơn khiếu nại của SV chậm nhất sau một tuần."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-52",
+        "score": 0.860076852646692,
+        "text": "Sau khi giải quyết đơn khiếu nại của SV, kết quả đánh giá hoạt động CTXH có thay đổi, Trưởng đơn vị tổ chức & đánh giá hoạt động CTXH có trách nhiệm điều chỉnh kết quả đánh giá của SV (bằng văn bản & trên phần mềm PSC).\n**8. Bước 8 : Lưu kết quả đánh giá hoạt động CTXH.**\na. Phòng Công tác HSSV chịu trách nhiệm lưu (bản chính) bằng kết quả đánh giá hoạt động CTXH của SV trong toàn trường."
+      }
+    ]
+  },
+  {
+    "id": "Q08",
+    "mode": "dense",
+    "question": "Kết quả CTXH phải được nhập và công bố trên phần mềm PSC chậm nhất khi nào?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-50",
+        "score": 0.90090767099554,
+        "text": "**a. Tại trường:** Các đơn vị chủ trì tổ chức & đánh giá kết quả hoạt động CTXH của sinh viên chịu trách nhiệm nhập kết quả đánh giá vào phần mềm PSC.\n**b. Tại địa phương:** Phòng Công tác HSSV chịu trách nhiệm nhập kết quả vào phần mềm PSC.\nViệc nhập & công bố kết quả đánh giá hoạt động CTXH của SV trên phần mềm PSC phải được hoàn tất chậm nhất sau 02 tuần khi hoạt động CTXH kết thúc."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-52",
+        "score": 0.7753323678193517,
+        "text": "Sau khi giải quyết đơn khiếu nại của SV, kết quả đánh giá hoạt động CTXH có thay đổi, Trưởng đơn vị tổ chức & đánh giá hoạt động CTXH có trách nhiệm điều chỉnh kết quả đánh giá của SV (bằng văn bản & trên phần mềm PSC).\n**8. Bước 8 : Lưu kết quả đánh giá hoạt động CTXH.**\na. Phòng Công tác HSSV chịu trách nhiệm lưu (bản chính) bằng kết quả đánh giá hoạt động CTXH của SV trong toàn trường."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-61",
+        "score": 0.7266903415328594,
+        "text": "- Lập kế hoạch và chỉ đạo các cấp Đoàn – Hội trực thuộc tổ chức thực hiện & đánh giá kết quả hoạt động CTXH của SV, nhập kết quả đánh giá hoạt động CTXH do Đoàn – Hội tổ chức vào phần mềm PSC; giải quyết các khiếu của SV; chuyển phòng Công tác HSSV bản chính bằng kết quả đánh giá hoạt động CTXH theo quy định;"
+      }
+    ]
+  },
+  {
+    "id": "Q09",
+    "mode": "dense",
+    "question": "Lịch hiến máu tại trường ngày 20/10/2026 bắt đầu lúc mấy giờ?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 0.8588052337444617,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-19",
+        "score": 0.34870215271217436,
+        "text": "| Xuân tình nguyện                                                                | 001301 | Tham gia suốt chương trình (04 ngày)                                                                                                                                                                                   | 10→20       | 1→2                 |\n| Đêm hội trăng rằm                                                             | 001401 | Tham gia suốt chương trình (04 ngày)                                                                                                                                                                                   | 10→20       | 1→2                 |\n| Tiếp sức mùa thi                                                                | 001501 | Tham gia suốt chương trình cấp thành (01 tháng)                                                                                                                                                                      | 20→40       | 2→4                 |\n|                                                                                    | 001502 | Tham gia suốt chương trình cấp trường (02 tuần)                                                                                                                                                                     | 20→30       | 2→3                 |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-28",
+        "score": 0.34762476185944174,
+        "text": "|                                                                                    | 004204 | Tham gia chăm sóc các cháu tại các trung tâm tình nguyện (01 lần).                                                                                                                                                | 5→10        | 0,5→1               |\n|                                                                                    | 004205 | Tham gia chăm sóc người bệnh có hoàn khó khăn tại bệnh viện hoặc gia đình (01 lần).                                                                                                                         | 5→10        | 0,5→1               |\n| Dạy nghề, chuyên môn cho thanh niên                                           | 005101 | Tham gia dạy nghề, chuyên môn cho thanh niên địa phương (01 tuần)                                                                                                                                                 | 20→30       | 2→3                 |"
+      }
+    ]
+  },
+  {
+    "id": "Q10",
+    "mode": "dense",
+    "question": "Hoạt động Xuân tình nguyện năm 2027 còn bao nhiêu chỗ đăng ký?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-44",
+        "score": 0.6290117496008022,
+        "text": "- Phòng công tác HSSV có trách nhiệm tổng hợp, điều chỉnh kế hoạch trong toàn trường & lập kế hoạch hoạt động CTXH trên cổng thông tin PSC để SV đăng ký.\n- Phòng công tác HSSV chịu trách nhiệm tổ chức cho SV đăng ký tham gia hoạt động CTXH trên cổng thông tin PSC hoặc qua văn bản (như đăng ký môn học).\nVới chương trình hoạt động CTXH có số lượng SV đăng ký tham gia vượt quá quy mô, ưu tiên cho sinh viên đăng ký trước."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.5227068599263804,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-68",
+        "score": 0.49326973533778895,
+        "text": "- Từ nguồn tài trợ của các tổ chức, cá nhân trong & ngoài trường;\n- Từ sự đóng góp tự nguyện của sinh viên khi tham gia chương trình.\n# **2. Phòng Kế hoạch-Tài chính chịu trách nhiệm hướng dẫn thu, chi những nội dung liên quan đến hoạt động CTXH**"
+      }
+    ]
+  },
+  {
+    "id": "Q11",
+    "mode": "dense",
+    "question": "Số điện thoại riêng của người phụ trách đợt hiến máu tháng 10/2026 là gì?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 0.8336901842950036,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-28",
+        "score": 0.3997612367867488,
+        "text": "|                                                                                    | 004204 | Tham gia chăm sóc các cháu tại các trung tâm tình nguyện (01 lần).                                                                                                                                                | 5→10        | 0,5→1               |\n|                                                                                    | 004205 | Tham gia chăm sóc người bệnh có hoàn khó khăn tại bệnh viện hoặc gia đình (01 lần).                                                                                                                         | 5→10        | 0,5→1               |\n| Dạy nghề, chuyên môn cho thanh niên                                           | 005101 | Tham gia dạy nghề, chuyên môn cho thanh niên địa phương (01 tuần)                                                                                                                                                 | 20→30       | 2→3                 |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-27",
+        "score": 0.34942097674520134,
+        "text": "| Chăm sóc người già, trẻ em khó khăn                                        | 004201 | Tổ chức các đoàn đến chăm sóc người già cô đơn tại các trung tâm nuôi dưỡng người cao tuổi (01 lần).                                                                                               | 5→10        | 0,5→1               |\n|                                                                                    | 004202 | Tham gia chăm sóc người già cô đơn tại các trung tâm nuôi dưỡng người cao tuổi (01 lần).                                                                                                                  | 5→10        | 0,5→1               |\n|                                                                                    | 004203 | Tổ chức các đoàn đến chăm sóc các cháu tại các trung tâm tình nguyện (01 lần) .                                                                                                                            | 5→10        | 0,5→1               |"
+      }
+    ]
+  },
+  {
+    "id": "Q12",
+    "mode": "dense",
+    "question": "Điểm chuẩn ngành Công nghệ thông tin năm 2026 là bao nhiêu?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-31",
+        "score": 0.5395324952317493,
+        "text": "| Hoàn thành nhiệm vụ cán bộ đoàn, hội, lớp, ban chủ nhiệm câu lạc bộ | 006101 | Hoàn thành nhiệm vụ cán bộ đoàn, hội từ cấp trường trở lên (có QĐ bổ nhiệm, chuẩn y, giao nhiệm vụ, đánh giá trách nhiệm cuối năm/tính theo năm học )                                       | 20→40       | 2→4                 |\n|                                                                                    | 006102 | Hoàn thành nhiệm vụ cán bộ đoàn, hội cấp khoa/TT & tương đương (có QĐ bổ nhiệm, chuẩn y, giao nhiệm vụ, đánh giá trách nhiệm cuối năm/tính theo năm học )                                   | 15→30       | 1,5→3               |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-32",
+        "score": 0.5062294461541491,
+        "text": "|                                                                                    | 006103 | Hoàn thành nhiệm vụ cán bộ chỉ đoàn, chi hội, lớp, ban chủ nhiệm câu lạc bộ, đội cờ đỏ (có QĐ bổ nhiệm, chuẩn y, giao nhiệm vụ, đánh giá trách nhiệm cuối năm/tính theo năm học )     | 10→20       | 1→2                 |\n| Tổ chức và tham gia các phong trào                                            | 006201 | Tổ chức các hoạt động văn nghệ, thể dục thể thao, các phong trào (ban chỉ đạo, ban tổ chức, ban giám khảo,.../ theo đợt hoặc hội thi, hội thao/ cấp trường.                                     | 15→30       | 1,5→3               |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-35",
+        "score": 0.5015101565835222,
+        "text": "|                                                                                    | 006207 | Hoàn thành nhiệm vụ đội viên đội cờ đỏ, cộng tác viên do các đơn vị trong trường cử & giao việc, đánh giá trách nhiệm cuối năm /theo năm học.                                               | 10→20       | 1→2                 |\n|                                                                                    | 006208 | Hoàn thành nhiệm vụ tư vấn viên do các đơn vị trong trường cử & giao việc, đánh giá trách nhiệm cuối năm /theo năm học.                                                                             | 10→20       | 1→2                 |"
+      }
+    ]
+  },
+  {
+    "id": "Q01",
+    "mode": "hybrid",
+    "question": "Trực tiếp hiến máu tình nguyện một lần, mã 001202, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 1.0,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.6829062753966046,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-17",
+        "score": 0.34528332156384495,
+        "text": "a. Các nội dung CTXH được mã hóa, thang điểm & quy đổi như sau:\n| Lĩnh vực CTXH                                                                    | Mã    | Nội dung & định lượng                                                                                                                                                                                                  | Thang điểm | Quy đổi ngày CTXH |\n| ---------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- |\n| Mùa hè xanh                                                                      | 001101 | Tham gia suốt chiến dịch (01 tháng) tại các tỉnh                                                                                                                                                                     | 20→40       | 2→4                 |\n|                                                                                    | 001102 | Tham gia suốt chiến dịch (01 tháng) tại Tp. Hồ Chí Minh                                                                                                                                                              | 20→40       | 2→4                 |"
+      }
+    ]
+  },
+  {
+    "id": "Q02",
+    "mode": "hybrid",
+    "question": "Tổ chức hoạt động hiến máu tình nguyện một lần, mã 001201, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 1.0,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.669147024947131,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-40",
+        "score": 0.41970917963220744,
+        "text": "Kế hoạch tổ chức hoạt động CTXH được xây dựng & công bố định kỳ vào đầu mỗi học kỳ và được bổ sung hàng tháng. Kế hoạch nêu rõ: Nội dung hoạt động, không gian & thời gian tổ chức; đơn vị chủ trì tổ chức & đánh giá, ban tổ chức triển khai hoạt động CTXH; quy mô SV có thể tham gia, đối tượng SV tham gia; dự kiến số điểm & số ngày CTXH được quy đổi; dự toán kinh phí & nguồn chi.\n**a. Hoạt động tại trường:**"
+      }
+    ]
+  },
+  {
+    "id": "Q03",
+    "mode": "hybrid",
+    "question": "Mùa hè xanh đội hình chuyên ngắn ngày hai tuần, mã 001104, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 1.0,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-17",
+        "score": 0.670587221201103,
+        "text": "a. Các nội dung CTXH được mã hóa, thang điểm & quy đổi như sau:\n| Lĩnh vực CTXH                                                                    | Mã    | Nội dung & định lượng                                                                                                                                                                                                  | Thang điểm | Quy đổi ngày CTXH |\n| ---------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- |\n| Mùa hè xanh                                                                      | 001101 | Tham gia suốt chiến dịch (01 tháng) tại các tỉnh                                                                                                                                                                     | 20→40       | 2→4                 |\n|                                                                                    | 001102 | Tham gia suốt chiến dịch (01 tháng) tại Tp. Hồ Chí Minh                                                                                                                                                              | 20→40       | 2→4                 |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.5635291924529188,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      }
+    ]
+  },
+  {
+    "id": "Q04",
+    "mode": "hybrid",
+    "question": "Mùa hè xanh đội hình chuyên ngắn ngày một tuần, mã 001105, được bao nhiêu ngày CTXH?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 1.0,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-17",
+        "score": 0.6780140435821074,
+        "text": "a. Các nội dung CTXH được mã hóa, thang điểm & quy đổi như sau:\n| Lĩnh vực CTXH                                                                    | Mã    | Nội dung & định lượng                                                                                                                                                                                                  | Thang điểm | Quy đổi ngày CTXH |\n| ---------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- |\n| Mùa hè xanh                                                                      | 001101 | Tham gia suốt chiến dịch (01 tháng) tại các tỉnh                                                                                                                                                                     | 20→40       | 2→4                 |\n|                                                                                    | 001102 | Tham gia suốt chiến dịch (01 tháng) tại Tp. Hồ Chí Minh                                                                                                                                                              | 20→40       | 2→4                 |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.5674940431169095,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      }
+    ]
+  },
+  {
+    "id": "Q05",
+    "mode": "hybrid",
+    "question": "Đi xem và cổ vũ thi đấu thể thao có được tính ngày CTXH không?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-16",
+        "score": 1.0,
+        "text": "✓ Các hoạt động không mang tính chất CTXH như: xem biểu diễn văn hóa nghệ thuật, chiếu phim; xem & cổ vũ thi đấu thể thao; tham quan bảo tàng, di tích lịch sử; đi du lịch; tham dự hội thảo; sinh hoạt tại các Câu lạc bộ... không được tính ngày CTXH.\n✓ Khi SV tham gia hoạt động CTXH đã được trả tiền công hoặc trả phí, thì không được tính ngày công tác xã hội.\n### 2. Mã hóa, thang điểm & quy đổi ngày CTXH"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-34",
+        "score": 0.5575292976754604,
+        "text": "|                                                                                    | 006204 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp thành, ngành /theo cuộc thi                                                                           | 10→20       | 1→2                 |\n|                                                                                    | 006205 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp trường /theo cuộc thi                                                                                 | 5→10        | 0,5→1               |\n|                                                                                    | 006206 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp khoa/TT/theo cuộc thi                                                                                   | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-33",
+        "score": 0.523569295518746,
+        "text": "|                                                                                    | 006202 | Tổ tổ chức các hoạt động văn nghệ, thể dục thể thao, các phong trào (ban chỉ đạo, ban tổ chức, ban giám khảo,.../ theo đợt hoặc hội thi, hội thao/ cấp khoa/TT.                                  | 10→20       | 1→2                 |\n|                                                                                    | 006203 | Tham gia thi (biểu diễn, thi đấu) văn hóa, chuyên môn, tay nghề, văn nghệ, thể dục thể thao,.../cấp quốc tế/theo cuộc thi                                                                                 | 15→30       | 1,5→3               |"
+      }
+    ]
+  },
+  {
+    "id": "Q06",
+    "mode": "hybrid",
+    "question": "Tham gia hoạt động CTXH đã được trả tiền công có được tính ngày CTXH không?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-16",
+        "score": 1.0,
+        "text": "✓ Các hoạt động không mang tính chất CTXH như: xem biểu diễn văn hóa nghệ thuật, chiếu phim; xem & cổ vũ thi đấu thể thao; tham quan bảo tàng, di tích lịch sử; đi du lịch; tham dự hội thảo; sinh hoạt tại các Câu lạc bộ... không được tính ngày CTXH.\n✓ Khi SV tham gia hoạt động CTXH đã được trả tiền công hoặc trả phí, thì không được tính ngày công tác xã hội.\n### 2. Mã hóa, thang điểm & quy đổi ngày CTXH"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-37",
+        "score": 0.5411402415742208,
+        "text": "- SV đăng ký tham gia hoạt động CTXH, nhưng không thực hiện nội dung đã đăng ký mà không có lý do hoặc lý do không chính đáng bị trừ 0,5 ngày CTXH;\n- SV đăng ký tham gia hoạt động CTXH, nhưng không hoàn thành nhiệm vụ, gây ảnh hưởng xấu đến hình ảnh của hoạt động, tổ chức, nhà trường, tùy theo mức độ vi phạm sẽ bị xử lý kỷ luật từ khiển trách trở lên và bị trừ ngày CTXH từ 01 đến toàn bộ số ngày đã tích lũy được."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-40",
+        "score": 0.4974371064152534,
+        "text": "Kế hoạch tổ chức hoạt động CTXH được xây dựng & công bố định kỳ vào đầu mỗi học kỳ và được bổ sung hàng tháng. Kế hoạch nêu rõ: Nội dung hoạt động, không gian & thời gian tổ chức; đơn vị chủ trì tổ chức & đánh giá, ban tổ chức triển khai hoạt động CTXH; quy mô SV có thể tham gia, đối tượng SV tham gia; dự kiến số điểm & số ngày CTXH được quy đổi; dự toán kinh phí & nguồn chi.\n**a. Hoạt động tại trường:**"
+      }
+    ]
+  },
+  {
+    "id": "Q07",
+    "mode": "hybrid",
+    "question": "Sinh viên được làm đơn khiếu nại kết quả CTXH trong thời hạn bao lâu sau khi công bố kết quả?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-51",
+        "score": 0.9800122209805211,
+        "text": "**7. Bước 7:** Khiếu nại kết quả đánh giá hoạt động CTXH: Trong vòng 10 ngày sau khi công bố kết quả đánh giá hoạt động CTXH, SV được phép làm đơn khiếu nại. Đơn gửi trực tiếp cho đơn vị tổ chức & đánh giá hoạt động CTXH mà SV đã tham gia. Trưởng đơn vị tổ chức & đánh giá hoạt động CTXH có trách nhiệm trả lời đơn khiếu nại của SV chậm nhất sau một tuần."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-53",
+        "score": 0.9692880404245492,
+        "text": "b. Các đơn vị tổ chức & đánh giá kết quả hoạt động CTXH của SV chuyển phòng Công tác HSSV bản chính bằng đánh giá kết quả (bảng điểm) sau khi đã hoàn tất việc nhập điểm và giải quyết các khiếu nại (nếu có). Thời hạn chậm nhất sau 20 ngày kể từ khi kết thúc việc tổ chức hoạt động CTXH.\n**IV. TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ**"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-52",
+        "score": 0.8700888852105205,
+        "text": "Sau khi giải quyết đơn khiếu nại của SV, kết quả đánh giá hoạt động CTXH có thay đổi, Trưởng đơn vị tổ chức & đánh giá hoạt động CTXH có trách nhiệm điều chỉnh kết quả đánh giá của SV (bằng văn bản & trên phần mềm PSC).\n**8. Bước 8 : Lưu kết quả đánh giá hoạt động CTXH.**\na. Phòng Công tác HSSV chịu trách nhiệm lưu (bản chính) bằng kết quả đánh giá hoạt động CTXH của SV trong toàn trường."
+      }
+    ]
+  },
+  {
+    "id": "Q08",
+    "mode": "hybrid",
+    "question": "Kết quả CTXH phải được nhập và công bố trên phần mềm PSC chậm nhất khi nào?",
+    "no_answer": false,
+    "evidence_found": true,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-50",
+        "score": 1.0,
+        "text": "**a. Tại trường:** Các đơn vị chủ trì tổ chức & đánh giá kết quả hoạt động CTXH của sinh viên chịu trách nhiệm nhập kết quả đánh giá vào phần mềm PSC.\n**b. Tại địa phương:** Phòng Công tác HSSV chịu trách nhiệm nhập kết quả vào phần mềm PSC.\nViệc nhập & công bố kết quả đánh giá hoạt động CTXH của SV trên phần mềm PSC phải được hoàn tất chậm nhất sau 02 tuần khi hoạt động CTXH kết thúc."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-52",
+        "score": 0.7355232646682748,
+        "text": "Sau khi giải quyết đơn khiếu nại của SV, kết quả đánh giá hoạt động CTXH có thay đổi, Trưởng đơn vị tổ chức & đánh giá hoạt động CTXH có trách nhiệm điều chỉnh kết quả đánh giá của SV (bằng văn bản & trên phần mềm PSC).\n**8. Bước 8 : Lưu kết quả đánh giá hoạt động CTXH.**\na. Phòng Công tác HSSV chịu trách nhiệm lưu (bản chính) bằng kết quả đánh giá hoạt động CTXH của SV trong toàn trường."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-53",
+        "score": 0.7109022092878489,
+        "text": "b. Các đơn vị tổ chức & đánh giá kết quả hoạt động CTXH của SV chuyển phòng Công tác HSSV bản chính bằng đánh giá kết quả (bảng điểm) sau khi đã hoàn tất việc nhập điểm và giải quyết các khiếu nại (nếu có). Thời hạn chậm nhất sau 20 ngày kể từ khi kết thúc việc tổ chức hoạt động CTXH.\n**IV. TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ**"
+      }
+    ]
+  },
+  {
+    "id": "Q09",
+    "mode": "hybrid",
+    "question": "Lịch hiến máu tại trường ngày 20/10/2026 bắt đầu lúc mấy giờ?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 1.0,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-16",
+        "score": 0.43702299976148506,
+        "text": "✓ Các hoạt động không mang tính chất CTXH như: xem biểu diễn văn hóa nghệ thuật, chiếu phim; xem & cổ vũ thi đấu thể thao; tham quan bảo tàng, di tích lịch sử; đi du lịch; tham dự hội thảo; sinh hoạt tại các Câu lạc bộ... không được tính ngày CTXH.\n✓ Khi SV tham gia hoạt động CTXH đã được trả tiền công hoặc trả phí, thì không được tính ngày công tác xã hội.\n### 2. Mã hóa, thang điểm & quy đổi ngày CTXH"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-19",
+        "score": 0.42147409374784406,
+        "text": "| Xuân tình nguyện                                                                | 001301 | Tham gia suốt chương trình (04 ngày)                                                                                                                                                                                   | 10→20       | 1→2                 |\n| Đêm hội trăng rằm                                                             | 001401 | Tham gia suốt chương trình (04 ngày)                                                                                                                                                                                   | 10→20       | 1→2                 |\n| Tiếp sức mùa thi                                                                | 001501 | Tham gia suốt chương trình cấp thành (01 tháng)                                                                                                                                                                      | 20→40       | 2→4                 |\n|                                                                                    | 001502 | Tham gia suốt chương trình cấp trường (02 tuần)                                                                                                                                                                     | 20→30       | 2→3                 |"
+      }
+    ]
+  },
+  {
+    "id": "Q10",
+    "mode": "hybrid",
+    "question": "Hoạt động Xuân tình nguyện năm 2027 còn bao nhiêu chỗ đăng ký?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.8993716634788014,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-44",
+        "score": 0.8912697517319607,
+        "text": "- Phòng công tác HSSV có trách nhiệm tổng hợp, điều chỉnh kế hoạch trong toàn trường & lập kế hoạch hoạt động CTXH trên cổng thông tin PSC để SV đăng ký.\n- Phòng công tác HSSV chịu trách nhiệm tổ chức cho SV đăng ký tham gia hoạt động CTXH trên cổng thông tin PSC hoặc qua văn bản (như đăng ký môn học).\nVới chương trình hoạt động CTXH có số lượng SV đăng ký tham gia vượt quá quy mô, ưu tiên cho sinh viên đăng ký trước."
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 0.6877112984637809,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      }
+    ]
+  },
+  {
+    "id": "Q11",
+    "mode": "hybrid",
+    "question": "Số điện thoại riêng của người phụ trách đợt hiến máu tháng 10/2026 là gì?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-18",
+        "score": 1.0,
+        "text": "|                                                                                    | 001103 | Tham gia suốt chiến dịch (01 tháng) tại trường                                                                                                                                                                       | 20→40       | 2→4                 |\n|                                                                                    | 001104 | Tham gia đội hình chuyên ngắn ngày (02 tuần)                                                                                                                                                                         | 20→30       | 2→3                 |\n|                                                                                    | 001105 | Tham gia đội hình chuyên ngắn ngày (01 tuần)                                                                                                                                                                         | 10→20       | 1→2                 |\n| Hiến máu tình nguyện                                                           | 001201 | Tổ chức hoạt động hiến máu tình nguyện (01 lần)                                                                                                                                                                   | 5→10        | 0,5→1               |\n|                                                                                    | 001202 | Trực tiếp hiến máu tình nguyện (01 lần)                                                                                                                                                                              | 5            | 0,5                  |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-28",
+        "score": 0.42683463349771655,
+        "text": "|                                                                                    | 004204 | Tham gia chăm sóc các cháu tại các trung tâm tình nguyện (01 lần).                                                                                                                                                | 5→10        | 0,5→1               |\n|                                                                                    | 004205 | Tham gia chăm sóc người bệnh có hoàn khó khăn tại bệnh viện hoặc gia đình (01 lần).                                                                                                                         | 5→10        | 0,5→1               |\n| Dạy nghề, chuyên môn cho thanh niên                                           | 005101 | Tham gia dạy nghề, chuyên môn cho thanh niên địa phương (01 tuần)                                                                                                                                                 | 20→30       | 2→3                 |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-11",
+        "score": 0.4266002057081586,
+        "text": "## II. NỘI DUNG CÔNG TÁC XÃ HỘI, MÃ HÓA & QUY ĐỔI NGÀY CTXH\n### 1. Các nội dung CTXH:\na. Tham gia các hoạt động tình nguyện vì cộng đồng: Mùa hè xanh, hiến máu tình nguyện, xuân tình nguyện, đêm hội trăng rằm, tiếp sức mùa thi, tư vấn hướng nghiệp-tuyển sinh, tiếp sức tân sinh viên; hoạt động cứu trợ thiên tai hoặc vận động quyên góp giúp đồng bào bị thiên tai,... (ký hiệu 001);"
+      }
+    ]
+  },
+  {
+    "id": "Q12",
+    "mode": "hybrid",
+    "question": "Điểm chuẩn ngành Công nghệ thông tin năm 2026 là bao nhiêu?",
+    "no_answer": true,
+    "evidence_found": null,
+    "retrieved": [
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-31",
+        "score": 1.0,
+        "text": "| Hoàn thành nhiệm vụ cán bộ đoàn, hội, lớp, ban chủ nhiệm câu lạc bộ | 006101 | Hoàn thành nhiệm vụ cán bộ đoàn, hội từ cấp trường trở lên (có QĐ bổ nhiệm, chuẩn y, giao nhiệm vụ, đánh giá trách nhiệm cuối năm/tính theo năm học )                                       | 20→40       | 2→4                 |\n|                                                                                    | 006102 | Hoàn thành nhiệm vụ cán bộ đoàn, hội cấp khoa/TT & tương đương (có QĐ bổ nhiệm, chuẩn y, giao nhiệm vụ, đánh giá trách nhiệm cuối năm/tính theo năm học )                                   | 15→30       | 1,5→3               |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-32",
+        "score": 0.9575723287473936,
+        "text": "|                                                                                    | 006103 | Hoàn thành nhiệm vụ cán bộ chỉ đoàn, chi hội, lớp, ban chủ nhiệm câu lạc bộ, đội cờ đỏ (có QĐ bổ nhiệm, chuẩn y, giao nhiệm vụ, đánh giá trách nhiệm cuối năm/tính theo năm học )     | 10→20       | 1→2                 |\n| Tổ chức và tham gia các phong trào                                            | 006201 | Tổ chức các hoạt động văn nghệ, thể dục thể thao, các phong trào (ban chỉ đạo, ban tổ chức, ban giám khảo,.../ theo đợt hoặc hội thi, hội thao/ cấp trường.                                     | 15→30       | 1,5→3               |"
+      },
+      {
+        "doc_id": "CTXH-QUYDINH",
+        "chunk_id": "chunk-62",
+        "score": 0.8702391625180839,
+        "text": "- Liên hệ, tìm kiếm và giới thiệu thông tin các địa chỉ có thể tổ chức hoạt động CTXH cho các khoa/TT hoặc phòng Công tác HSSV xem xét, quyết định tổ chức hoạt động CTXH nhằm tạo điều kiện cho SV tham gia hoàn thành chương trình CTXH theo qui định. Cập nhật danh sách địa chỉ CTXH và cập nhật mới hằng năm cho nhà trường;"
+      }
+    ]
+  }
+]

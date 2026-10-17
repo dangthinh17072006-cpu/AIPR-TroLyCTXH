@@ -1,0 +1,43 @@
+{
+  "engine": "local",
+  "embedding_backend": "LSA offline (src/embedding.py)",
+  "max_steps": 8,
+  "n_questions": 19,
+  "repeats": 1,
+  "retrieval": {
+    "dense": {
+      "hit_at_4": 0.923,
+      "mrr": 0.872,
+      "n": 13
+    },
+    "hybrid": {
+      "hit_at_4": 0.923,
+      "mrr": 0.872,
+      "n": 13
+    }
+  },
+  "agent": {
+    "dense": {
+      "pass_rate": 1.0,
+      "answerable_pass_rate": 1.0,
+      "no_answer_refusal_rate": 1.0,
+      "citation_ok_rate": 1.0,
+      "avg_steps": 1.11,
+      "llm_calls": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "failed_ids": []
+    },
+    "hybrid": {
+      "pass_rate": 1.0,
+      "answerable_pass_rate": 1.0,
+      "no_answer_refusal_rate": 1.0,
+      "citation_ok_rate": 1.0,
+      "avg_steps": 1.11,
+      "llm_calls": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "failed_ids": []
+    }
+  }
+}

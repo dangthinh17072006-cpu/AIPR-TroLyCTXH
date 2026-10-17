@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+state/
+results/*/__pycache__/
+.DS_Store
+# logs/ và results/ được commit để giảng viên đối chiếu bằng chứng

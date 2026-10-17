@@ -25,6 +25,7 @@ def call_llm(payload: dict, usage: Usage, log) -> str:
     }).encode()
 
     for attempt in range(1, LLM_RETRIES + 1):
+        time.sleep(5)  # Chờ 5 giây giữa các lần gọi để tránh vượt hạn mức
         usage.calls += 1  # request lỗi cũng tính
         request = Request(url, data=body, headers={"Authorization": "Bearer " + key,
                                                    "Content-Type": "application/json"})
@@ -40,6 +41,9 @@ def call_llm(payload: dict, usage: Usage, log) -> str:
             return data["choices"][0]["message"]["content"]
         except (HTTPError, URLError, TimeoutError, KeyError, json.JSONDecodeError) as exc:
             status = exc.code if isinstance(exc, HTTPError) else None
+            if isinstance(exc, HTTPError):
+                detail = exc.read().decode("utf-8", errors="replace")
+                print("Chi tiết lỗi API:", detail.replace(key, "[DA_CHE_KEY]"))
             log("HTTP_ERROR", attempt=attempt, status=status, error=type(exc).__name__)
             # lỗi 4xx (sai key, sai model...) thì thử lại cũng vô ích, trừ 408/409/429
             if status is not None and status < 500 and status not in (408, 409, 429):

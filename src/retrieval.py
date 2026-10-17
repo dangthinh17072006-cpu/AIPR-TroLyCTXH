@@ -1,6 +1,6 @@
-"""Retriever: dense và hybrid (BM25 + vector), dùng lại hàm của w4 trong course/ex2_1_hybrid_search.py."""
-from course import ex2_1_hybrid_search as w4
-from course.ex2_1_hybrid_search import build_bm25_index, dense_search, hybrid_search
+"""Retriever: dense và hybrid (BM25 + vector), dùng lại hàm của w4 trong src/ex2_1_hybrid_search.py."""
+from . import ex2_1_hybrid_search as w4
+from .ex2_1_hybrid_search import build_bm25_index, dense_search, hybrid_search
 
 from . import embedding
 from .chunking import load_chunks

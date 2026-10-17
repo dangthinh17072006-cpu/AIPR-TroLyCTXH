@@ -24,7 +24,7 @@ def main() -> int:
     check('2.4 retry + timeout + log HTTP', 'timeout=' in src and "'HTTP_ERROR'" in src and 'range(3)' in src)
     check('2.5 dense + hybrid BM25', "'dense'" in src and "'hybrid'" in src and 'BM25Okapi' in src)
     check('2.5 tái dùng ex2_1_hybrid_search.py',
-          (ROOT / 'course/ex2_1_hybrid_search.py').exists()
+          (ROOT / 'src/ex2_1_hybrid_search.py').exists()
           and 'ex2_1_hybrid_search' in (ROOT / 'src/retrieval.py').read_text(encoding='utf-8'))
     check('2.5 chunking có module riêng', (ROOT / 'src/chunking.py').exists())
     check('2.6 MAX_STEPS', MAX_STEPS >= 1 and 'MAX_STEPS' in src, f'MAX_STEPS={MAX_STEPS}')

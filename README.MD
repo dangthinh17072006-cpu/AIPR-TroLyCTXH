@@ -46,7 +46,7 @@ Người dùng ─▶ src/main.py ─▶ src/agent.py   (vòng lặp tự viết
                           src/server.py     (FastMCP, 6 tool)
      ĐỌC: search_regulations · lookup_activity · points_to_days · get_record · get_student_summary
      GHI: record_activity ──▶ SQLite ──▶ get_record (verify)
-                          │ RAG: src/chunking.py → src/retrieval.py → course/ex2_1_hybrid_search.py (w4)
+                          │ RAG: src/chunking.py → src/retrieval.py → src/ex2_1_hybrid_search.py (w4)
                           └ bảng mã: src/activities.py
 ```
 
@@ -63,7 +63,7 @@ CTXH-I … CTXH-V theo mục lớn, và CTXH-II-BANG cho bảng mã. Văn bản 
 
 ## Dense và hybrid
 
-| Chế độ | Hàm (`course/ex2_1_hybrid_search.py`) | Điểm |
+| Chế độ | Hàm (`src/ex2_1_hybrid_search.py`) | Điểm |
 |---|---|---|
 | `dense` | `dense_search` | cosine giữa embedding câu hỏi và chunk |
 | `hybrid` | `hybrid_search` | 0.3 × BM25 + 0.7 × cosine, sau min-max |

@@ -1,0 +1,47 @@
+{
+  "engine": "api",
+  "embedding_backend": "LSA offline (src/embedding.py)",
+  "max_steps": 8,
+  "n_questions": 19,
+  "repeats": 3,
+  "retrieval": {
+    "dense": {
+      "hit_at_4": 0.923,
+      "mrr": 0.872,
+      "n": 13
+    },
+    "hybrid": {
+      "hit_at_4": 0.923,
+      "mrr": 0.872,
+      "n": 13
+    }
+  },
+  "agent": {
+    "dense": {
+      "pass_rate": 0.982,
+      "answerable_pass_rate": 1.0,
+      "no_answer_refusal_rate": 0.933,
+      "citation_ok_rate": 1.0,
+      "avg_steps": 0.86,
+      "llm_calls": 103,
+      "prompt_tokens": 246075,
+      "completion_tokens": 5672,
+      "failed_ids": [
+        "Q11"
+      ]
+    },
+    "hybrid": {
+      "pass_rate": 0.965,
+      "answerable_pass_rate": 0.952,
+      "no_answer_refusal_rate": 1.0,
+      "citation_ok_rate": 1.0,
+      "avg_steps": 0.91,
+      "llm_calls": 106,
+      "prompt_tokens": 252081,
+      "completion_tokens": 5873,
+      "failed_ids": [
+        "Q17"
+      ]
+    }
+  }
+}

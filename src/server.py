@@ -1,7 +1,5 @@
 """MCP server (stdio). stdout dành riêng cho giao thức MCP nên KHÔNG dùng print.
 
-Tool đọc: search_regulations, lookup_activity, points_to_days, get_record, get_student_summary
-Tool ghi: record_activity (ghi SQLite, sau đó phải verify bằng get_record)
 """
 import json
 import os

@@ -6,9 +6,11 @@ Sổ ghi nhận hoạt động (`state/ctxh.sqlite3`) chỉ là **DEMO**, không
 
 ## Chạy
 
+Cần Python 3.11+.
+
 ```bash
-make setup && make demo          # Linux/macOS/Git-Bash (cần Python 3.11+)
-python run.py setup-demo         # Windows
+make setup && make demo          # Linux/macOS/Git-Bash
+python run.py setup-demo         # Windows (tạo .venv, cài thư viện, chạy demo)
 ```
 
 Mặc định `AIPR_MODE=local` nên demo không cần API key.
@@ -17,8 +19,11 @@ Mặc định `AIPR_MODE=local` nên demo không cần API key.
 |---|---|---|
 | Demo 3 câu (tra mã, RAG, ghi + verify) | `make demo` | `python run.py demo` |
 | Hỏi tự do | `make chat` | `python run.py chat` |
+| Hỏi một câu tùy ý | — | `python run.py demo --question "..."` |
 | So sánh dense và hybrid | `make eval` | `python run.py eval` |
-| Kiểm thử | `make test` | `python run.py test` |
+| Kiểm thử (20 test) | `make test` | `python run.py test` |
+
+Tùy chọn thêm cho `demo`/`eval`: `--engine local|api`, `--retrieval dense|hybrid` (chỉ demo/chat), `--repeats N` (chỉ eval).
 
 Ví dụ câu hỏi: `Mã 001202 được bao nhiêu ngày CTXH?` · `Tổng điểm 47 quy đổi mấy ngày?` ·
 `Ghi nhận sinh viên 11110001 mã 001202, 5 điểm, ngày 2026-10-10.` · `Không ghi nhận, chỉ tính mã 001202.`
@@ -34,8 +39,11 @@ OPENAI_MODEL=gpt-4.1-mini
 OPENAI_BASE_URL=https://api.openai.com/v1   # hoặc endpoint OpenAI-compatible khác
 ```
 
-Sau đó chạy `make demo` và `make eval` (mode api mặc định lặp 3 lượt, mỗi lượt có 1 file `logs/*.jsonl` kèm dòng USAGE).
-API mode không tự chuyển về local. **Engine `local` chỉ là bộ chọn hành động theo luật (baseline), không phải LLM.**
+Sau đó chạy `make demo` và `make eval` (mode api mặc định lặp 3 lượt, mỗi lượt có 1 file `logs/*.jsonl` kèm dòng `USAGE`).
+API mode **không** tự chuyển về local. **Engine `local` chỉ là bộ chọn hành động theo luật (baseline), không phải LLM.**
+
+Cấu hình gọi API (`src/config.py`, `src/llm.py`): timeout 30 giây, thử lại tối đa 3 lần (lỗi 5xx, 408, 409, 429 và lỗi mạng),
+lỗi 4xx khác (sai key/model/base_url) dừng ngay. Mỗi lần gọi chờ thêm 5 giây để tránh vượt hạn mức nên `make eval` ở mode api chạy khá lâu.
 
 ## Kiến trúc
 
@@ -68,8 +76,32 @@ CTXH-I … CTXH-V theo mục lớn, và CTXH-II-BANG cho bảng mã. Văn bản 
 | `dense` | `dense_search` | cosine giữa embedding câu hỏi và chunk |
 | `hybrid` | `hybrid_search` | 0.3 × BM25 + 0.7 × cosine, sau min-max |
 
-- Embedding: nếu import được `Vector_Store` của lớp (`../Week_4` hoặc biến `W4_PATH`) thì dùng embedding đó; nếu không dùng `src/embedding.py` (TF-IDF + SVD, chạy offline) để repo chạy được bằng 1 lệnh.
+- **Embedding:** `src/embedding.py` — TF-IDF + SVD (64 chiều, học từ chính 102 chunk), chạy offline bằng numpy nên repo chạy được bằng 1 lệnh.
+  Đây là embedding thống kê, không phải mô hình ngữ nghĩa, nên dense ở đây chủ yếu vẫn dựa trên từ trùng.
+- **BM25:** `rank-bm25`, tách từ bằng `words()` trong `src/embedding.py` (chữ thường, theo `\w+`).
 - **Metadata filter:** tham số `doc_id` của `search_regulations` lọc chunk *trước* khi xếp hạng. Prompt `templates/agent.txt` hướng dẫn LLM dùng nó.
+
+## Kết quả đánh giá
+
+Bộ test `tests/testset.jsonl`: 19 câu (14 câu có đáp án, 5 câu `no_answer`; trong đó có câu ghi dữ liệu, câu cấm ghi, câu thiếu thông tin).
+Số liệu lấy từ `results/*/summary.json`.
+
+**Retrieval** (13 câu có bằng chứng, K = 4): dense và hybrid **giống hệt nhau**: Hit@4 = 0,923, MRR = 0,872.
+Câu trượt duy nhất là Q16 ("Không ghi nhận gì cả, chỉ tính mã 001202…"), câu này agent xử lý bằng `lookup_activity` chứ không qua tìm kiếm.
+Vì vậy bộ test hiện tại **chưa phân biệt được** dense với hybrid ở tầng retrieval.
+
+**Agent** (độ chính xác theo từng câu):
+
+| Engine | Chế độ | Số lượt | Đạt | Đạt (câu có đáp án) | Từ chối đúng | Trích dẫn đúng | Câu từng sai |
+|---|---|---|---|---|---|---|---|
+| local (không LLM) | dense | 3 | 1,000 | 1,000 | 1,000 | 1,000 | — |
+| local (không LLM) | hybrid | 3 | 1,000 | 1,000 | 1,000 | 1,000 | — |
+| api (`gpt-4.1-mini`) | dense | 3 | 0,982 | 1,000 | 0,933 | 1,000 | Q11 |
+| api (`gpt-4.1-mini`) | hybrid | 3 | 0,965 | 0,952 | 1,000 | 1,000 | Q17 |
+
+Lượt api (`results/api-20261017-235352`): dense dùng 103 lần gọi, 246.075 token prompt + 5.672 token completion; hybrid dùng 106 lần gọi, 252.081 + 5.873 token.
+Trên 57 lượt trả lời (19 câu × 3), dense sai 1 lượt và hybrid sai 2 lượt, nên chênh lệch dense/hybrid ở bảng trên **nằm trong mức nhiễu**, không đủ để kết luận chế độ nào tốt hơn.
+Baseline local đạt 100% nhưng luật của nó được chỉnh trực tiếp trên bộ test này (xem phần Giới hạn), nên không nên dùng con số đó để so với LLM.
 
 ## Đối chiếu yêu cầu
 
@@ -89,22 +121,22 @@ CTXH-I … CTXH-V theo mục lớn, và CTXH-II-BANG cho bảng mã. Văn bản 
 
 - `logs/*.jsonl`: từng câu có `ACTION`, `TOOL_CALL`, `TOOL_RESULT`, `VERIFY`, `ANSWER`, `USAGE`.
 - `results/<engine>-<giờ>/summary.json`: Hit@4, MRR, tỉ lệ đạt, tỉ lệ từ chối đúng, tỉ lệ trích dẫn đúng, token.
+  Có nhiều thư mục `results/local-*` vì nhóm chạy nhiều lần trong lúc sửa planner; **thư mục `local-20261017-153735` là bản mới nhất**,
+  các bản cũ hơn (`local-20261015-211610`, `local-20261017-153345`) còn câu Q19 sai.
 - Eval dùng SQLite tạm, không đụng `state/`.
 
 ## Giới hạn
 
 Hệ thống chỉ trả lời dựa trên văn bản quy định CTXH và sổ demo; không biết lịch hoạt động, số chỗ, học phí, điểm chuẩn...
 (sẽ trả `no_answer`). Không thay thế phần mềm PSC; không xác minh danh tính sinh viên; chưa xử lý quy tắc trừ ngày (II.2.b)
-và chưa phân biệt khóa 2012.
+và chưa phân biệt khóa 2012. Số ngày tối thiểu chỉ có hai mức (4 năm trở lên: 4 ngày; dưới 4 năm: 2 ngày, mục I.3).
 
-Giới hạn đã biết của baseline `local`: câu "Học phí học kỳ này là bao nhiêu?" (Q19) vẫn bị trả lời thay vì từ chối, vì
-bộ lọc từ chối chỉ dựa vào tỉ lệ từ khóa trùng. Engine `api` xử lý việc này bằng prompt.
+Giới hạn của baseline `local`:
+- Bộ lọc từ chối dựa vào tỉ lệ từ khóa của câu hỏi có trong bằng chứng (ngưỡng 0,6). Câu "Học phí học kỳ này là bao nhiêu?" (Q19)
+  từng bị trả lời thay vì từ chối; hiện đã được xử lý bằng **luật riêng cho cụm "học phí"** và luật "câu hỏi có năm/số cụ thể mà bằng chứng không có"
+  trong `coverage()` (`src/planner.py`). Đây là luật viết tay cho những ca đã biết, chưa phải lời giải tổng quát cho mọi câu ngoài phạm vi.
+- Engine `api` xử lý việc từ chối chủ yếu bằng prompt.
 
-## Trước khi nộp
-
-- [ ] Chạy API thật ít nhất 3 lượt (`AIPR_MODE=api`), đọc log, cập nhật số liệu trong report.
-- [ ] Thu hồi (revoke) API key OpenAI từng nằm trong `.env.example` của bản zip cũ, tạo key mới; không đưa key vào git.
-- [ ] Commit thật từng người bằng tài khoản của mình.
-- [ ] Viết `report.docx` theo khung của đề.
-- [ ] Điền `ai-usage.md` bằng phần từng người đã đọc, sửa, giải thích được.
-- [ ] Thử `make setup && make demo` từ một bản giải nén mới.
+Giới hạn chung của lớp bảo vệ ghi dữ liệu: việc **cho phép ghi** được quyết định bằng biểu thức chính quy trong `src/planner.py`
+(`ghi nhận`, `ghi vào`, `lưu lại`, …) kể cả ở mode api. Cách nói khác ("thêm giúp tôi một bản ghi") sẽ bị chặn dù LLM muốn gọi `record_activity`.
+Chặn nhầm an toàn hơn ghi nhầm, nhưng cần biết khi thử câu hỏi mới.

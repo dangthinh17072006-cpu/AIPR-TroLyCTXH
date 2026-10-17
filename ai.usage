@@ -1,20 +1,138 @@
 KHAI BÁO SỬ DỤNG AI – LÊ QUANG THẮNG
 
-Công cụ: ChatGPT/Codex.
+Công cụ sử dụng: ChatGPT/Codex.
+Mục đích: hỗ trợ viết code, giải thích cách xử lý và sửa lỗi.
+Số dòng dưới đây tính theo phiên bản mã nguồn dùng khi khai báo.
 
-Các phần có AI hỗ trợ:
-1. src/retrieval.py
-   Hỗ trợ xây dựng tìm kiếm Dense/Hybrid và xếp hạng kết quả.
+1. FILE: src/retrieval.py
 
-2. src/embedding.py
-   Hỗ trợ xử lý văn bản và tạo vector phục vụ tìm kiếm.
+Vị trí: hàm Retriever.search(), dòng 23–40.
+Phạm vi hỗ trợ: lọc tài liệu theo doc_id, chọn tìm kiếm Dense
+hoặc Hybrid và trả về các đoạn tài liệu đã xếp hạng.
 
-3. tests/test_core.py
-   Hỗ trợ đề xuất và viết các trường hợp kiểm thử tự động.
+Code tiêu biểu, dòng 35–40:
 
-4. src/planner.py
-   AI hỗ trợ trích xuất thông tin từ câu hỏi, chọn công cụ
-   phù hợp và dựng câu trả lời từ kết quả công cụ.
-Cách sử dụng:
-AI hỗ trợ giải thích, đề xuất code và sửa lỗi.
-Sinh viên rà soát, chỉnh sửa và chạy kiểm thử trước khi sử dụng.
+        if mode == "dense":
+            ranked = dense_search(question, vectors, top_k)
+        else:
+            bm25 = build_bm25_index(chunks, tokenizer=words)
+            ranked = hybrid_search(question, chunks, bm25, vectors, top_k=top_k, tokenizer=words)
+        return [(chunks[i], float(score)) for i, score in ranked]
+
+Giải thích:
+Dense tìm kiếm bằng vector. Hybrid kết hợp tìm kiếm từ khóa
+BM25 với vector. Các hàm tìm kiếm được gọi từ
+src/ex2_1_hybrid_search.py.
+
+
+2. FILE: src/embedding.py
+
+Vị trí:
+- Hàm fit(), dòng 25–33.
+- Hàm embed_text(), dòng 36–41.
+
+Phạm vi hỗ trợ: xây dựng embedding dự phòng bằng TF-IDF
+và SVD, sau đó chuẩn hóa vector.
+
+Code hàm fit():
+
+def fit(texts: list[str]):
+    """Học không gian vector từ các chunk của corpus."""
+    global vocab, idf, basis
+    all_words = sorted({w for t in texts for w in words(t)})
+    vocab = {w: i for i, w in enumerate(all_words)}
+    counts = np.array([count_vector(t) for t in texts])
+    idf = np.log((1 + len(texts)) / (1 + (counts > 0).sum(axis=0))) + 1
+    _, _, vt = np.linalg.svd(counts * idf, full_matrices=False)
+    basis = vt[:64]
+
+Code hàm embed_text():
+
+def embed_text(text: str) -> list[float]:
+    if basis is None:
+        raise RuntimeError("Cần gọi fit() trước")
+    vec = (count_vector(text) * idf) @ basis.T
+    norm = np.linalg.norm(vec)
+    return (vec / norm if norm > 0 else vec).tolist()
+
+Giải thích:
+fit() tạo từ điển, tính trọng số từ và học không gian vector.
+embed_text() chuyển văn bản sang vector trong không gian đó.
+Đây là phương án dự phòng khi không dùng được embedding
+từ tài liệu thực hành của lớp.
+
+
+3. FILE: tests/test_core.py
+
+Các phần kiểm thử được khai báo có AI hỗ trợ:
+- DataTests, dòng 24–42: dữ liệu, quy đổi điểm và metadata.
+- RetrievalTests, dòng 45–61: Dense/Hybrid và bộ lọc tài liệu.
+- ParserTests, dòng 64–76: JSON và ý định ghi dữ liệu.
+- McpAgentTests, dòng 79–163: gọi tool, xác minh bản ghi,
+  chống ghi trái yêu cầu và xử lý lỗi.
+- LlmAdapterTests, dòng 166–210: mô phỏng HTTP để kiểm tra
+  retry, token và việc không ghi API key vào log.
+- RepoHygieneTests, dòng 213–219: kiểm tra chuỗi bí mật.
+
+Hình thức hỗ trợ:
+Đề xuất trường hợp kiểm thử, viết code kiểm thử và hỗ trợ sửa lỗi.
+
+Code tiêu biểu:
+Hàm test_model_cannot_force_unauthorized_write(),
+dòng 138–142:
+
+    async def test_model_cannot_force_unauthorized_write(self):
+        raw = json.dumps({"tool": "record_activity", "arguments": {"student_id": "11110001", "activity_code": "001202", "points": 5, "event_date": "2026-10-10"}})
+        with patch("src.agent.call_llm", return_value=raw), patch("src.agent.call") as invoke:
+            await run_agent(None, [{"name": "record_activity"}], "Chỉ cho tôi xem mã 001202", "hybrid", "api", lambda *a, **k: None)
+            invoke.assert_not_called()
+
+Giải thích:
+Giả lập tình huống LLM yêu cầu ghi dữ liệu dù người dùng
+chỉ muốn xem. Kiểm thử xác nhận công cụ không được gọi.
+Đây là kiểm thử dùng mô phỏng, không gọi API thật.
+
+
+4. FILE: src/planner.py
+
+Các phần được khai báo có AI hỗ trợ:
+- extract(), dòng 40–56: trích xuất mã hoạt động, MSSV,
+  điểm, ngày và ý định ghi từ câu hỏi.
+- plan(), dòng 69–102: chọn hành động theo luật.
+- coverage(), dòng 115–138: kiểm tra mức trùng từ khóa
+  giữa câu hỏi và bằng chứng.
+- best_sentences(), dòng 141–152: chọn câu phù hợp
+  từ đoạn tài liệu.
+- compose(), dòng 159–200: dựng câu trả lời, trích dẫn
+  hoặc thông báo không đủ bằng chứng.
+
+Hình thức hỗ trợ:
+Đề xuất code, giải thích biểu thức chính quy, xử lý điều kiện
+và hỗ trợ sửa lỗi.
+
+Code tiêu biểu trong plan(), dòng 72–78:
+
+    if f.write:
+        # thiếu thông tin thì từ chối, không đoán
+        needed = [("mã hoạt động 6 số", f.codes), ("mã sinh viên 8 số", f.student_id),
+                  ("số điểm", f.points), ("ngày YYYY-MM-DD", f.event_date)]
+        missing = [name for name, value in needed if value is None or value == []]
+        if missing:
+            return Action("finish", {"status": "refused", "answer": "Chưa ghi gì. Còn thiếu: " + ", ".join(missing) + "."})
+
+Giải thích:
+Khi người dùng yêu cầu ghi nhận hoạt động, chương trình
+kiểm tra đủ mã hoạt động, MSSV, điểm và ngày.
+Nếu thiếu thông tin thì trả thông báo từ chối.
+
+Lưu ý về chức năng:
+plan() chọn hành động theo luật cho engine local.
+Trong engine api, LLM chọn công cụ; agent.py thực hiện
+kiểm soát quyền ghi và xác minh bản ghi.
+
+
+TRÁCH NHIỆM SỬ DỤNG
+
+Sinh viên rà soát, chỉnh sửa và chạy kiểm thử mã nguồn.
+Khai báo phản ánh các phần thực tế có AI hỗ trợ.
+Nếu có phần khác dùng AI, bổ sung vào khai báo.

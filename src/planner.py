@@ -103,7 +103,6 @@ def plan(question: str, obs: list[Observation], mode: str) -> Action:
 
 
 # ---------- dựng câu trả lời ----------
-
 def parse_json(result: str) -> dict | None:
     try:
         value = json.loads(result)
@@ -112,16 +111,31 @@ def parse_json(result: str) -> dict | None:
     return value if isinstance(value, dict) else None
 
 
+
 def coverage(question: str, texts: list[str]) -> float:
-    """Tỉ lệ từ khóa của câu hỏi có trong các đoạn tìm được; thấp thì baseline từ chối trả lời.
-    Số cụ thể (năm, ngày tháng...) trong câu hỏi mà bằng chứng không có thì cho 0 luôn."""
-    pool = set(words(" ".join(texts)))
-    if any(len(w) >= 4 and w.isdigit() and w not in pool for w in words(question)):
+    """Kiểm tra từ khóa của câu hỏi có trong bằng chứng hay không."""
+    question_words = words(question)
+    evidence_words = words(" ".join(texts))
+    pool = set(evidence_words)
+
+    # Câu hỏi về học phí phải có bằng chứng chứa đúng cụm "học phí".
+    question_text = " ".join(question_words)
+    evidence_text = " ".join(evidence_words)
+
+    if "học phí" in question_text and "học phí" not in evidence_text:
         return 0.0
-    keys = [w for w in words(question) if w not in STOP]
-    if not keys:
-        return 1.0
-    return sum(w in pool for w in keys) / len(keys)
+
+    # Không trả lời nếu câu hỏi chứa năm hoặc số cụ thể không có trong bằng chứng.
+    for word in question_words:
+        if len(word) >= 4 and word.isdigit() and word not in pool:
+            return 0.0
+
+    keywords = [word for word in question_words if word not in STOP]
+    if not keywords:
+        return 0.0
+
+    matched = sum(word in pool for word in keywords)
+    return matched / len(keywords)
 
 
 def best_sentences(text: str, question: str, n: int = 2) -> str:

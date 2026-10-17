@@ -1,0 +1,20 @@
+KHAI BÁO SỬ DỤNG AI – LÊ QUANG THẮNG
+
+Công cụ: ChatGPT/Codex.
+
+Các phần có AI hỗ trợ:
+1. src/retrieval.py
+   Hỗ trợ xây dựng tìm kiếm Dense/Hybrid và xếp hạng kết quả.
+
+2. src/embedding.py
+   Hỗ trợ xử lý văn bản và tạo vector phục vụ tìm kiếm.
+
+3. tests/test_core.py
+   Hỗ trợ đề xuất và viết các trường hợp kiểm thử tự động.
+
+4. src/planner.py
+   AI hỗ trợ trích xuất thông tin từ câu hỏi, chọn công cụ
+   phù hợp và dựng câu trả lời từ kết quả công cụ.
+Cách sử dụng:
+AI hỗ trợ giải thích, đề xuất code và sửa lỗi.
+Sinh viên rà soát, chỉnh sửa và chạy kiểm thử trước khi sử dụng.
